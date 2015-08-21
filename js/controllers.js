@@ -151,3 +151,8 @@ techChallenge
 		$log.error('Error: ' + e);
 	});
 })
+.controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
