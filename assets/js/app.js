@@ -26,8 +26,8 @@ techChallenge
                 templateUrl : 'partials/company-list.html',
                 controller : 'CompanyListController'
             })
-            .when('/principal', {
-                templateUrl : 'partials/principal.html',
+            .when('/main', {
+                templateUrl : 'partials/main.html',
                 controller : 'PrincipalController'
             })
             .when('/blog', {
@@ -39,7 +39,7 @@ techChallenge
                 controller : 'EntryController'
             })
             .otherwise({
-                redirectTo : '/principal'
+                redirectTo : '/main'
             });			
             $mdThemingProvider.theme('default').primaryPalette('blue');
         }

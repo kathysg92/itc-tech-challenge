@@ -80,7 +80,7 @@ module.exports.connections = {
     user: 'YOUR_POSTGRES_USER',
     password: 'YOUR_POSTGRES_PASSWORD',
     database: 'YOUR_POSTGRES_DB'
-  }
+  },
 
 
   /***************************************************************************
@@ -88,5 +88,14 @@ module.exports.connections = {
   * More adapters: https://github.com/balderdashy/sails                      *
   *                                                                          *
   ***************************************************************************/
+
+  kadTechChallenge: {
+    adapter: 'sails-mongo',
+    host: 'ds033133.mongolab.com',
+    port: 33133,
+    user: 'kad-rw',
+    password: '0s0E_Nz+|3uy0s0E_Nz+|3uy',
+    database: 'kad-tech-challenge'
+  },
 
 };
