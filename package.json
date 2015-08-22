@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "0.10.x"
+  },
   "version": "0.0.0",
   "private": true,
   "name": "d1-un-tech-challenge",
