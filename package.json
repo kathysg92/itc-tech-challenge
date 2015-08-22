@@ -23,7 +23,7 @@
     "bower" : "X"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "./node_modules/bower/bin/bower install",
 
     "prestart": "npm install",
     "start": "http-server -a 0.0.0.0 -p 8080",
