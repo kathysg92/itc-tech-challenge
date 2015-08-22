@@ -1,6 +1,5 @@
 'use strict';
 
-/* App Module */
 var techChallenge = angular.module('techChallenge', [
             'ngResource',
             'ngRoute',
@@ -30,6 +29,14 @@ techChallenge
             .when('/principal', {
                 templateUrl : 'partials/principal.html',
                 controller : 'PrincipalController'
+            })
+            .when('/blog', {
+                templateUrl : 'partials/blog.html',
+                controller : 'BlogController'
+            })
+            .when('/entry', {
+                templateUrl : 'partials/entry.html',
+                controller : 'EntryController'
             })
             .otherwise({
                 redirectTo : '/principal'
