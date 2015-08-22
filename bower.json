@@ -13,8 +13,8 @@
     "angular-route": "1.4.x",
     "angular-resource": "1.4.x",
     "angular-cookies": "1.4.x",
-	"angular-aria": "1.4.x",
-	"angular-material": "0.10.0",
-	"angular-ui-date": "0.0.8"
+  	"angular-aria": "1.4.x",
+  	"angular-material": "0.10.0",
+  	"angular-ui-date": "0.0.8"
   }
 }
