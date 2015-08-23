@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="/bower_components/jquery-ui/themes/flick/jquery-ui.css"/>
 	<link rel="stylesheet" href="css/app.css"/>
 	<link rel="stylesheet" href="css/styles.css"/>
+	<link rel="stylesheet" href="css/login.css"/>
 	
 	<script src="/bower_components/jquery/dist/jquery.js"></script>
 	<script src="/bower_components/jquery-ui/jquery-ui.js"></script>
@@ -41,7 +42,7 @@
 
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-
+<!-- <div ng-controller="LoginController"> -->
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 	    <header class="mdl-layout__header">
 		    <div class="mdl-layout__header-row">
@@ -50,9 +51,15 @@
 				<!-- Add spacer, to align navigation to the right -->
 				<div class="mdl-layout-spacer"></div>
 				<!-- Navigation. We hide it in small screens. -->
-				<nav class="mdl-navigation mdl-layout--large-screen-only">
-					<a class="mdl-navigation__link" href="">Login</a>
-				</nav>
+				<div ng-controller="LoginController">
+					<nav class="mdl-navigation mdl-layout--large-screen-only">
+						<!-- <a class="mdl-navigation__link" href="">Login</a> -->
+						<md-button class="md-primary md-raised" ng-click="showLogin($event)" flex flex-md="100">
+						    Login
+						</md-button>
+					    
+					</nav>
+				</div>
 		    </div>
 	    </header>
 	 	<div class="mdl-layout__drawer">
@@ -73,6 +80,6 @@
 					<div ng-view class="view-frame">			
 					</div>
 				</div>
-
+<!-- </div> -->
 </body>
 </html>
