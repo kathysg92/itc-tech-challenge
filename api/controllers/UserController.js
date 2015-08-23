@@ -6,6 +6,11 @@
  */
 
 module.exports = {
-	
+	isAuth: function(req, res){
+        return res.send({
+            message: "hi."
+        })
+
+    }
 };
 

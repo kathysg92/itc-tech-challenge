@@ -159,7 +159,7 @@ techChallenge
 		
 	}
 })
-.controller('LoginController', function ($scope, $mdDialog) {
+.controller('LoginController', function ($scope, $mdDialog, User) {
 	$scope.status = '  ';
 	$scope.showLogin = function(ev) {
 		$mdDialog.show({
@@ -170,11 +170,13 @@ techChallenge
 		  clickOutsideToClose:true
 		})
 	};
-
-	function submitLogin(){
-		document.forms["LoginForm"].submit();
+	console.log(User.auth())
+	var auth = User.auth();
+	if(auth.message == 'hi.'){
+		$scope.isauth = true;		
 	}
-	
+
+
   	
 
 })
