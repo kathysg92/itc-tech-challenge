@@ -21,13 +21,20 @@
 
 module.exports.connections = {
 
-  kadTechChallenge: {
-    adapter: 'sails-mongo',
-    host: 'ds033133.mongolab.com',
-    port: 33133,
-    user: 'kad-rw',
-    password: '0s0E_Nz3uy0s0E_Nz3uy',
-    database: 'kad-tech-challenge'
-  },
+  // kadTechChallenge: {
+  //   adapter: 'sails-mongo',
+  //   host: 'ds033133.mongolab.com',
+  //   port: 33133,
+  //   user: 'kad-rw',
+  //   password: '0s0E_Nz3uy0s0E_Nz3uy',
+  //   database: 'kad-tech-challenge'
+  // },
+
+  katTesting: {
+  	adapter : 'sails-mongo',
+  	host : 'vmtstkat007',
+  	port: 27017
+
+  }
 
 };

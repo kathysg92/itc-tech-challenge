@@ -156,10 +156,8 @@ techChallenge
 	}
 })
 .controller('LoginController', function ($scope, $mdDialog) {
-
 	$scope.status = '  ';
 	$scope.showLogin = function(ev) {
-		// console.log(ev)
 		$mdDialog.show({
 		  parent: angular.element(document.body),
 		  controller: 'LoginController',
@@ -167,25 +165,13 @@ techChallenge
 		  targetEvent: ev,
 		  clickOutsideToClose:true
 		})
-		// .then(function(answer) {
-		//   $scope.status = 'You said the information was "' + answer + '".';
-		// }, function() {
-		//   $scope.status = 'You cancelled the dialog.';
-		// });
 	};
 	
   	
 
 })
-
-// function DialogController($scope, $mdDialog) {
-//   $scope.hide = function() {
-//     $mdDialog.hide();
-//   };
-//   $scope.cancel = function() {
-//     $mdDialog.cancel();
-//   };
-//   $scope.answer = function(answer) {
-//     $mdDialog.hide(answer);
-//   };
-// }
+.controller('Prod&ServiceController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
