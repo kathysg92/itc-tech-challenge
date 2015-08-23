@@ -17,7 +17,8 @@ module.exports.models = {
   * connections (see `config/connections.js`)                                *
   *                                                                          *
   ***************************************************************************/
-  connection: 'kadTechChallenge',
+  // connection: 'kadTechChallenge',
+  connection: 'katTesting',
 
   /***************************************************************************
   *                                                                          *
