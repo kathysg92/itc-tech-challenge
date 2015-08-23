@@ -169,9 +169,4 @@ techChallenge
 		  clickOutsideToClose:true
 		})
 	};
-	
-	var auth = User.auth();
-	if(auth.message == 'hi.'){
-		$scope.isauth = true;		
-	}
 })

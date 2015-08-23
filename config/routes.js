@@ -21,7 +21,7 @@
  */
 
 module.exports.routes = {
-   '/' : { view : 'index'},
+   '/' : 'MainController.index',
   'get /login': {
        view: 'login'
   },
