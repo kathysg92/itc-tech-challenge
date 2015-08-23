@@ -137,8 +137,11 @@ techChallenge
   //   }
 
 })
-.controller('CompanyListController', function ($log, $scope, $routeParams, Card, Company) {
+.controller('CompanyListController', function ($log, $scope, $routeParams, Company) {
 	$scope.companies = Company.get();
+})
+.controller('ProductListController', function ($log, $scope, $routeParams, Product) {
+	$scope.products = Product.get();
 })
 .controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	function init() {
@@ -176,4 +179,12 @@ techChallenge
 	function init() {
 		
 	}
+})
+
+function submitLogin(){
+	document.forms["LoginForm"].submit();
+}
+
+	
+
 })
