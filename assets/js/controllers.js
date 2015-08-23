@@ -128,9 +128,8 @@ techChallenge
 	// 		showErrorMessage(null, 'The company logo url doesn\'t point to an image.');
 	// 	}
 	// }
-	
+
 	$scope.companies = Company.get();
-	
 
   //   init();
   //   if ($routeParams.id) {
@@ -167,7 +166,14 @@ techChallenge
 		  clickOutsideToClose:true
 		})
 	};
-	
-  	
-
+})
+.controller('ProductController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
+.controller('CompanyController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
 })

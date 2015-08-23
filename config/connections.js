@@ -33,8 +33,9 @@ module.exports.connections = {
   katTesting: {
   	adapter : 'sails-mongo',
   	host : 'localhost',
-  	port: 27017
-
+  	port: 27017,
+    database: 'kad-tech-challenge'
   }
+
 
 };

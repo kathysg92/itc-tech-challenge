@@ -32,6 +32,9 @@
 	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+	<!-- ADd for Chrome -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
 	<style type="text/css">
 		.demo-content {
@@ -43,7 +46,6 @@
 
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<!-- <div ng-controller="LoginController"> -->
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 	    <header class="mdl-layout__header">
 		    <div class="mdl-layout__header-row">
@@ -75,13 +77,8 @@
 	  	</div>
 	 	<main class="mdl-layout__content">
 		    <div ng-view class="view-frame">			
-					</div>
+			</div>
 		</main>
 	</div>
-
-		    	<div class="view-container">
-					
-				</div>
-<!-- </div> -->
 </body>
 </html>
