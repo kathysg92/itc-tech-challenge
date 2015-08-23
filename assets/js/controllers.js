@@ -170,3 +170,26 @@ techChallenge
 		})
 	};
 })
+.controller('EmailController', function ($scope, $mdDialog) {
+	$scope.status = '  ';
+	$scope.showEmail = function(ev) {
+		$mdDialog.show({
+		  parent: angular.element(document.body),
+		  controller: 'EmailController',
+		  templateUrl: 'partials/_email.html',
+		  targetEvent: ev,
+		  clickOutsideToClose:true
+		})
+		.then(function(answer) {
+	      // $scope.status = 'You said the information was "' + answer + '".';
+	      //if answer == send : send email 
+	      console.log(answer)
+	    }, function() {
+	      // $scope.status = 'You cancelled the dialog.';
+	    });
+	};
+})
+function submitLogin(){
+	document.forms["LoginForm"].submit();
+}
+
