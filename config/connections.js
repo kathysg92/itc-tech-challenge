@@ -29,7 +29,7 @@ module.exports.connections = {
     password: '0s0E_Nz3uy0s0E_Nz3uy',
     database: 'kad-tech-challenge'
   },
-
+ 
   // katTesting: {
   // 	adapter : 'sails-mongo',
   // 	host : 'vmtstkat007',
