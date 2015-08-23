@@ -57,9 +57,16 @@
 				<div ng-controller="LoginController">
 					<nav class="mdl-navigation mdl-layout--large-screen-only">
 						<!-- <a class="mdl-navigation__link" href="">Login</a> -->
+						{{#isauth}}
+
 						<md-button class="md-primary md-raised" ng-click="showLogin($event)" flex flex-md="100">
 						    Login
 						</md-button>
+
+						{{/isauth}}
+						{{^isauth}}
+							<p>Logged in!</p>
+						{{/isauth}}
 					    
 					</nav>
 				</div>

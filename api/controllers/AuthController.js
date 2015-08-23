@@ -17,6 +17,7 @@ module.exports = {
     login: function(req, res) {
 
         passport.authenticate('local', function(err, user, info) {
+            console.log(user)
             if ((err) || (!user)) {
                 return res.send({
                     message: info.message,
@@ -25,10 +26,11 @@ module.exports = {
             }
             req.logIn(user, function(err) {
                 if (err) res.send(err);
-                return res.send({
-                    message: info.message,
-                    user: user
-                });
+                res.redirect('/');
+                // return res.send({
+                //     message: info.message,
+                //     user: user
+                // });
             });
 
         })(req, res);
@@ -38,5 +40,7 @@ module.exports = {
         req.logout();
         res.redirect('/');
     }
+
+    
 };
 

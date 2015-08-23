@@ -128,9 +128,8 @@ techChallenge
 	// 		showErrorMessage(null, 'The company logo url doesn\'t point to an image.');
 	// 	}
 	// }
-	
+
 	$scope.companies = Company.get();
-	
 
   //   init();
   //   if ($routeParams.id) {
@@ -138,8 +137,11 @@ techChallenge
   //   }
 
 })
-.controller('CompanyListController', function ($log, $scope, $routeParams, Card, Company) {
+.controller('CompanyListController', function ($log, $scope, $routeParams, Company) {
 	$scope.companies = Company.get();
+})
+.controller('ProductListController', function ($log, $scope, $routeParams, Product) {
+	$scope.products = Product.get();
 })
 .controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	$('.mdh-toggle-search').click(function() {
@@ -175,7 +177,7 @@ techChallenge
 		
 	}
 })
-.controller('LoginController', function ($scope, $mdDialog) {
+.controller('LoginController', function ($scope, $mdDialog, User) {
 	$scope.status = '  ';
 	$scope.showLogin = function(ev) {
 		$mdDialog.show({
@@ -187,6 +189,9 @@ techChallenge
 		})
 	};
 	
-  	
-
+	console.log(User.auth())
+	var auth = User.auth();
+	if(auth.message == 'hi.'){
+		$scope.isauth = true;		
+	}
 })
