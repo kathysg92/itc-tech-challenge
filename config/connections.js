@@ -32,7 +32,7 @@ module.exports.connections = {
 
   katTesting: {
   	adapter : 'sails-mongo',
-  	host : 'vmtstkat007',
+  	host : 'localhost',
   	port: 27017
 
   }
