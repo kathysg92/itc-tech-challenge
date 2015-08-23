@@ -14,12 +14,12 @@ module.exports.bootstrap = function(cb) {
 	// It's very important to trigger this callback method when you are finished
 	// with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
 	cb();
-	module.exports.http = {
-		customMiddleware: function(app){
-	        var path = require('path'),
-	            express = require('../node_modules/sails/node_modules/express');
-	        app.use('/assets/partials', express.static( path.normalize(__dirname + '/../partials') ) );
-	        // app.use('/user', express.static( path.normalize(__dirname + '/../user') ) );
-    	}
-	}
+	// module.exports.http = {
+	// 	customMiddleware: function(app){
+	//         var path = require('path'),
+	//             express = require('../node_modules/sails/node_modules/express');
+	//         app.use('/assets/partials', express.static( path.normalize(__dirname + '/../partials') ) );
+	//         // app.use('/user', express.static( path.normalize(__dirname + '/../user') ) );
+ //    	}
+	// }
 };

@@ -1,8 +1,35 @@
-<div id="main-content" layout="column" class="content-container">
-	<md-content>
-		<div class="content-block">
-			<div>Search result:</div><br/>
-			{{companies}}
-		</div>
-	</md-content>
-</div>
+<style>
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 320px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background:
+    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+}
+</style>
+
+    <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+	    <main class="mdl-layout__content">
+	        <div class="demo-blog__posts mdl-grid">
+
+
+	        	<div class="demo-card-square mdl-card mdl-shadow--2dp" ng-repeat="company in companies">
+	        		<div class="mdl-card__title mdl-card--expand">
+	        			<h2 class="mdl-card__title-text">{{company.companyName}}</h2>
+	        		</div>
+	        		<div class="mdl-card__supporting-text">
+	        			<!-- {{company.description}} -->
+	        		</div>
+	        	  	<div class="mdl-card__actions mdl-card--border">
+	        		    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href='{{company.url}}'>
+	        		    	Visit Website
+	        		    </a>
+	        	  	</div>
+	        	</div>
+
+	    	</div>
+		</main>
+	</div>
+

@@ -5,6 +5,7 @@
 	<title>Company Detail</title>
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
 	<link rel="stylesheet" href="/bower_components/jquery-ui/themes/flick/jquery-ui.css"/>
 	<link rel="stylesheet" href="css/app.css"/>
 	<link rel="stylesheet" href="css/styles.css"/>
@@ -66,19 +67,19 @@
 		    <span class="mdl-layout-title"><a href="#/main">TECH Challenge</a></span>
 		    <nav class="mdl-navigation">
 				<a class="mdl-navigation__link" href="#/company/new">New Company</a>
+				<a class="mdl-navigation__link" href="#/companies">List Companies</a>
 				<a class="mdl-navigation__link" href="#/blog">Blog</a>
 				<a class="mdl-navigation__link" href="">Login</a>
 		    </nav>
 	  	</div>
 	 	<main class="mdl-layout__content">
-		    <div class="page-content">
-			</div>
+		    <div ng-view class="view-frame">			
+					</div>
 		</main>
 	</div>
 
 		    	<div class="view-container">
-					<div ng-view class="view-frame">			
-					</div>
+					
 				</div>
 <!-- </div> -->
 </body>

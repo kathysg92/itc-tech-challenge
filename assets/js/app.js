@@ -28,7 +28,7 @@ techChallenge
             })
             .when('/main', {
                 templateUrl : 'partials/main.html',
-                controller : 'PrincipalController'
+                controller : 'CompanyController'
             })
             .when('/blog', {
                 templateUrl : 'partials/blog.html',
