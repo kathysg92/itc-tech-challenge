@@ -1,115 +1,164 @@
+<head>
+ 	<title>Create new company</title>
+	<section class="header-large-img mdl-cell mdl-cell--12-col">
+	</section>
+</head>
+<body>
 <div id="main-content" layout="column" class="content-container">
-	<md-content>
 		<div class="content-block">
 			<div layout layout-sm="column" class="content-block-title">
-				<div flex="85">
-					<h4>Profile Information</h4>					
-				</div>
-				<div flex="15" class="req-field">
-					<h5>* required fields</h5>
-				</div>
+				<h4>Contact Information</h4>
 			</div>
 			<div layout layout-sm="column">
-				<md-input-container flex>
-					<label>Company Name *</label>
-					<input ng-model="company.name" ng-required="true" ng-change="syncCardModel()">
+				<md-input-container flex="35">
+					<label>Name *</label>
+					<input ng-model="company.contactName" ng-required="true" ng-change="syncCardModel()">
+				</md-input-container>
+				<md-input-container flex="35">
+					<label>Bussiness Name *</label>
+					<input ng-model="company.businessName" ng-required="true" ng-change="syncCardModel()">
+				</md-input-container>
+				
+			</div>	
+			<div layout layout-sm="column">
+			<md-input-container flex="35">
+					<label>Email *</label>
+					<input ng-model="company.email" ng-required="true" ng-change="syncCardModel()">
+				</md-input-container>
+				<md-input-container flex="35">
+					<label>Password *</label>
+					<input ng-model="company.password" type="password" ng-required="true" ng-change="syncCardModel()">
 				</md-input-container>
 			</div>
-			<div layout layout-sm="column">
-				<md-input-container class="md-icon-float" flex="66" flex-sm>
-					<label>Address</label>
-					<md-icon md-font-icon="icon-ic_place_48px"></md-icon>
-					<input ng-model="company.address" ng-change="syncCardModel()">
-				</md-input-container>
-				<md-input-container flex="33" flex-sm>
-					<label>Country</label>
-					<input ng-model="company.country" ng-change="syncCardModel()">
-				</md-input-container>
+		</div>
+		<div class="content-block">
+			<div layout layout-sm="column" class="content-block-title">
+				<h4>Business Information</h4>
 			</div>
+			<md-input-container flex>
+				<md-input-container flex="35">
+					<md-checkbox ng-model="company.isProduct" aria-label="Product">Product </md-checkbox>
+					<md-checkbox ng-model="company.isService" aria-label="Service">Service </md-checkbox>
+				</md-input-container>
+
+				<!-- <md-input-container flex="35">
+					<md-checkbox ng-model="company.isManagedControledByWomen" aria-label="Managed & Controled by Women?">Managed & Controled by Women? </md-checkbox>
+				</md-input-container> -->	
+
+			    <label>Business description</label>
+				<textarea ng-model="company.businessDescription" aria-label="Business Description" ng-change="syncCardModel()" md-maxlength="5000" column="1" rows="1"></textarea>
+
+			</md-input-container>
+
 			<div layout layout-sm="column">
-				<md-input-container class="md-icon-float" flex="66" flex-sm>
-					<label>Website</label>
+				<md-input-container class="md-icon-float" flex="50" flex-sm>
+					<label>Business Website</label>
 					<md-icon md-font-icon="icon-ic_insert_link_48px"></md-icon>
 					<input ng-model="company.website" ng-change="syncCardModel()">
 				</md-input-container>
-				<md-input-container class="md-icon-float" flex="33" flex-sm>
+				<md-input-container class="md-icon-float" flex="20" flex-sm>
 					<label>Phone</label>
 					<md-icon md-font-icon="icon-ic_phone_48px"></md-icon>
 					<input ng-model="company.phone" ng-change="syncCardModel()">
 				</md-input-container>
 			</div>
 			<div layout layout-sm="column">
-				<md-input-container class="md-icon-float" flex>
-					<label>Logo Image Url *</label>
-					<md-icon md-font-icon="icon-ic_insert_link_48px"></md-icon>
-					<input ng-model="company.logoImgUrl" ng-required="true" ng-change="validateImage()" ng-model-options="{ updateOn: 'blur' }">
-					<img class="company-logo-preview" ng-src="{{company.logoImgUrl || '//:0'}}" load-image>
-				</md-input-container>
-			</div>
-		</div>
-		<div class="content-block">
-			<div layout layout-sm="column" class="content-block-title">
-				<h4>Contact Information</h4>
-			</div>
-			<div layout layout-sm="column">
-				<md-input-container flex="50">
-					<label>Name *</label>
-					<input ng-model="company.contactName" ng-required="true" ng-change="syncCardModel()">
-				</md-input-container>
-				<md-input-container flex="50">
-					<label>Job Title *</label>
-					<input ng-model="company.contactJobTitle" ng-required="true" ng-change="syncCardModel()">
-				</md-input-container>
-			</div>			
-		</div>
-		<div class="content-block">
-			<div layout layout-sm="column" class="content-block-title">
-				<h4>Company Information</h4>
-			</div>
-			<div layout layout-sm="column">
-				<md-input-container flex="35">
+				<md-input-container flex="25">
 					<label>Year of Establishment</label>
 					<input ui-date ui-date-format="d MM, yy" ng-model="company.yearOfEstablishment" ng-change="syncCardModel()">
 				</md-input-container>
-				<md-input-container flex="30">
+				<md-input-container flex="25">
 					<label>% of the Business Owned by Women</label>
 					<input class="numeric-input" type="number" ng-model="company.percBusinessOwnedByWomen" ng-change="syncCardModel()" min="0" max="100" size="50">
 				</md-input-container>
-				<md-input-container flex="35">
-					<md-checkbox ng-model="company.isManagedControledByWomen" aria-label="Managed & Controled by Women?">Managed & Controled by Women? </md-checkbox>
-				</md-input-container>				
-			</div>
+				<md-input-container flex="20" flex-sm>
+					<label>Country</label>
+					<input ng-model="company.country" ng-change="syncCardModel()">
+				</md-input-container>
+
+			</div>	
 			<div layout layout-sm="column">
-				<md-input-container flex="35">
-					<label># of Permanent Employees</label>
-					<input class="numeric-input" type="number" ng-model="company.numPermEmployee" ng-change="syncCardModel()" min="0">
+				<md-input-container class="md-icon-float" flex="68" flex-sm>
+					<label>Address</label>
+					<md-icon md-font-icon="icon-ic_place_48px"></md-icon>
+					<input ng-model="company.address" ng-change="syncCardModel()">
 				</md-input-container>
-				<md-input-container flex="30">
-					<label># of Female Employees</label>
-					<input class="numeric-input" type="number" ng-model="company.numFemaleEmployee" ng-change="syncCardModel()" min="0">
-				</md-input-container>
-			</div>
-			<div layout layout-sm="column">
-				<md-input-container flex>
-					<label>Certifications</label>
-					<textarea ng-model="company.certifications" ng-change="syncCardModel()" md-maxlength="3000" column="1" rows="1"></textarea>
-				</md-input-container>
-			</div>
-			<div layout layout-sm="column">
-				<md-input-container flex>
-					<label>Member Of</label>
-					<input ng-model="company.memberOf" ng-change="syncCardModel()">
-				</md-input-container>
+				
 			</div>
 		</div>
 		<div class="content-block">
 			<div layout layout-sm="column" class="content-block-title">
-				<h4>Business Description</h4>
+				<h4>Product/Service Information</h4>
+			</div>
+			<div layout layout-sm="column">
+				<md-input-container flex>
+					<label>Description</label>
+					<textarea ng-model="company.description" aria-label="Description" ng-change="syncCardModel()" md-maxlength="5000" column="1" rows="1"></textarea>
+				</md-input-container>
+			</div>
+			<div layout layout-sm="column">
+				<md-input-container flex="35">
+					<label>Name *</label>
+					<input ng-model="company.name" ng-required="true" ng-change="syncCardModel()">
+				</md-input-container>
+				<md-input-container flex="35">
+					<label>Category *</label>
+					<input ng-model="company.category" ng-required="true" ng-change="syncCardModel()">
+					<!-- <button id="demo-menu-lower-left"
+					        class="mdl-button mdl-js-button mdl-button--icon">
+					 Category
+					</button>
+
+					<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+					    for="demo-menu-lower-left">
+					  <li class="mdl-menu__item">Some Action</li>
+					  <li class="mdl-menu__item">Another Action</li>
+					  <li disabled class="mdl-menu__item">Disabled Action</li>
+					  <li class="mdl-menu__item">Yet Another Action</li>
+					</ul> -->
+				</md-input-container>
+				
+			</div>	
+			<div layout="row">
+                <div flex></div>
+                <!-- <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored right">
+				  <i class="material-icons">add</i>
+				</button> -->
+				<md-button type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">add</i></md-button>
+               
+            </div>
+		</div>
+		<div class="content-block">
+			<div layout layout-sm="column" class="content-block-title">
+				<h4>Tearms and Conditions</h4>
 			</div>
 			<md-input-container flex>
-				<textarea ng-model="company.businessDescription" aria-label="Business Description" ng-change="syncCardModel()" md-maxlength="5000" column="1" rows="1"></textarea>
+				<md-input-container flex="35">
+					<p>I acknowledge and agree that any personal information I submit about myself, the company, corporation or partnership 
+
+					on whose behalf I am seeking registration,  or about the directors, officers, shareholders or partners thereof as 
+
+					applicable may be collected and used by XXX for purposes of evaluating the application to determine qualification.  
+
+					Further, if this application is approved, my business information, as authorized by me in this application, may be 
+
+					included in a database that will be accessible to XXX members and other registered women’s business enterprises.  I 
+
+					represent and warrant that I have the consent of all other individuals whose personal information has been provided in 
+
+					this application to disclose such personal information and that such information may be collected, used and disclosed 
+
+					for the same purposes as stated above. I warrant that the information provided above is true and accurate in all material 
+
+					respects. By submitting this application I am agreeing to the above terms and conditions.</p>
+					<br />
+					<p>I understand and agree to the above tearms and conditions</p>
+					<md-checkbox ng-model="company.isProduct" aria-label="Yes">Yes </md-checkbox>
+					<md-checkbox ng-model="company.isService" aria-label="No">No </md-checkbox>
+				</md-input-container>
 			</md-input-container>
 		</div>
+
 		<div class="content-block-bottom">
 			<div layout="row">
                 <div flex></div>
@@ -119,3 +168,24 @@
 		</div>
 	</md-content>
 </div>
+<div class="mdl-layout__obfuscator"></div>
+<body>
+<footer class="mdl-mini-footer">
+  <div class="mdl-mini-footer--left-section">
+    <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
+      <span class="visuallyhidden">Twitter</span>
+    </button>
+    <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
+      <span class="visuallyhidden">Facebook</span>
+    </button>
+    <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus">
+      <span class="visuallyhidden">Google Plus</span>
+    </button>
+  </div>
+  <div class="mdl-mini-footer--right-section">
+    <button class="mdl-mini-footer--social-btn social-btn__share">
+      <i class="material-icons" role="presentation">share</i>
+      <span class="visuallyhidden">share</span>
+    </button>
+  </div>
+</footer>
