@@ -42,6 +42,10 @@ techChallenge
                 templateUrl : 'partials/_login.html',
                 controller : 'LoginController'
             })
+            .when('/products', {
+                templateUrl : 'partials/product-list.html',
+                controller : 'ProductController'
+            })
             .otherwise({
                 redirectTo : '/main'
             });			

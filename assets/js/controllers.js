@@ -177,6 +177,11 @@ techChallenge
   	
 
 })
+.controller('ProductController', function ($scope, $mdDialog, Product) {
+
+	$scope.products = Product.get();	
+
+})
 
 // function DialogController($scope, $mdDialog) {
 //   $scope.hide = function() {

@@ -77,6 +77,16 @@ techChallenge.factory('Company', ['$templateCache', '$log', '$resource',
         }
     ]);
 
+techChallenge.factory('Product', ['$resource',
+        function ($resource) {
+
+            var Product =  $resource('/products', {}, {
+                get : {method: "GET", isArray: true}
+            });
+            return Product;
+        }
+    ]);
+
 techChallenge.factory('Card', ['$resource',
         function ($resource) {
             var apiHost = 'https://api.smartcanvas.com/card/v1/cards/:cardId';
