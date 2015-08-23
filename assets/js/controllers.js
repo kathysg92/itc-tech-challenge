@@ -169,12 +169,10 @@ techChallenge
 		  clickOutsideToClose:true
 		})
 	};
+	
 	console.log(User.auth())
 	var auth = User.auth();
 	if(auth.message == 'hi.'){
 		$scope.isauth = true;		
 	}
-
-
-  	
 })
