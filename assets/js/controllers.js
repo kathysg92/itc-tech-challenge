@@ -170,8 +170,3 @@ techChallenge
   	
 
 })
-.controller('Prod&ServiceController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
-	function init() {
-		
-	}
-})
