@@ -130,3 +130,12 @@ md-input-container .md-placeholder:not(.md-select-label), md-input-container lab
 #main-content{
 	padding-top: 40px;
 }
+
+
+.header-large-img{
+	background: url(/images/header-banner-large.jpg) center 30% no-repeat;
+	background-size:cover;
+	-webkit-background-origin:border;
+	height: 200px;
+	width: 100%;
+}
