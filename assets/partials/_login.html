@@ -1,18 +1,33 @@
-<md-dialog-content > <!--style="max-width:800px;max-height:810px; "-->
-<form class='login-form'>
-  <div class="group">
-    <input type="text"><span class="highlight"></span><span class="bar"></span>
-    <label>Username</label>
-  </div>
-  <div class="group">
-    <input type="password"><span class="highlight"></span><span class="bar"></span>
-    <label>Password</label>
-  </div>
-  <button type="button" class="button buttonBlue">Log in
-    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-  </button>
-  <p class="contextual-nav"><a href="#/company/new">Do not have an account yet? Register </a></p>
-  <br />
-  <p id="nav"> <a>Lost your password?</a></p>
-</form>
-</md-dialog-content>
+<md-dialog > <!--style="max-width:800px;max-height:810px; "-->
+<md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Login</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="answer('not applicable')">
+        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content style="max-width:800px;max-height:810px;"> 
+    <form method='POST' class='login-form' action='/login'>
+      <div class="group">
+        <input type="email" name="email"><span class="highlight"></span><span class="bar"></span>
+        <label>Username</label>
+      </div>
+      <div class="group">
+        <input type="password" type="password"><span class="highlight"></span><span class="bar"></span>
+        <label>Email</label>
+      </div>
+      <div class="group">
+        <input type="submit" value="submit"><span class="highlight"></span><span class="bar"></span>
+        <label>Login</label>
+      </div>
+      <button type="button" class="button buttonBlue">Log in
+        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+      </button>
+      <p class="contextual-nav"><a href="#/company/new">Do not have an account yet? Register </a></p>
+      <br />
+      <p id="nav"> <a>Lost your password?</a></p>
+    </form>
+  </md-content>
+</md-dialog>

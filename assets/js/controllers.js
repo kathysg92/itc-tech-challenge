@@ -128,8 +128,9 @@ techChallenge
 	// 		showErrorMessage(null, 'The company logo url doesn\'t point to an image.');
 	// 	}
 	// }
-
+	
 	$scope.companies = Company.get();
+	
 
   //   init();
   //   if ($routeParams.id) {
