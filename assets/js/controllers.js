@@ -138,20 +138,7 @@ techChallenge
 
 })
 .controller('CompanyListController', function ($log, $scope, $routeParams, Card, Company) {
-	$scope.companies = [];
-	Card.query({
-		status : 'APPROVED',
-		q: $routeParams.q
-	}).$promise.then(function (r) {
-		$scope.result = r;
-		$scope.cards = r.data;
-		for (var i = 0; i < $scope.cards.length; i++) {
-			$scope.companies.push(Company.fromCard($scope.cards[i]));
-		}
-		$log.info('Got ' + r.meta.count + ' objects');
-	}, function (e) {
-		$log.error('Error: ' + e);
-	});
+	$scope.companies = Company.get();
 })
 .controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	function init() {

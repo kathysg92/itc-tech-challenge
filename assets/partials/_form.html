@@ -17,7 +17,7 @@
 					<input ng-model="company.name" ng-required="true" ng-change="syncCardModel()">
 				</md-input-container>
 			</div>
-			<!-- <div layout layout-sm="column">
+			<div layout layout-sm="column">
 				<md-input-container class="md-icon-float" flex="66" flex-sm>
 					<label>Address</label>
 					<md-icon md-font-icon="icon-ic_place_48px"></md-icon>
@@ -47,9 +47,9 @@
 					<input ng-model="company.logoImgUrl" ng-required="true" ng-change="validateImage()" ng-model-options="{ updateOn: 'blur' }">
 					<img class="company-logo-preview" ng-src="{{company.logoImgUrl || '//:0'}}" load-image>
 				</md-input-container>
-			</div> -->
+			</div>
 		</div>
-		<!-- <div class="content-block">
+		<div class="content-block">
 			<div layout layout-sm="column" class="content-block-title">
 				<h4>Contact Information</h4>
 			</div>
@@ -118,6 +118,6 @@
 				<md-button type="button" aria-label="Cancel" ng-click="cancel()">Cancel</md-button>
                 <md-button class="md-accent" type="button" aria-label="Save" ng-click="saveCompany()" ng-disabled="!isCompanyValid()">Save</md-button>
             </div>
-		</div> -->
+		</div>
 	</md-content>
 </div>
