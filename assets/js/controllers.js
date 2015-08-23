@@ -170,21 +170,8 @@ techChallenge
 		})
 	};
 })
-.controller('ProductController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
-	function init() {
-		
-	}
-})
-.controller('CompanyController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
-	function init() {
-		
-	}
-})
 
 function submitLogin(){
 	document.forms["LoginForm"].submit();
 }
 
-	
-
-})
