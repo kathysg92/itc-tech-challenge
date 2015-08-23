@@ -26,6 +26,10 @@ techChallenge
                 templateUrl : 'partials/company-list.html',
                 controller : 'CompanyListController'
             })
+            .when('/products', {
+                templateUrl : 'partials/product-list.html',
+                controller : 'ProductListController'
+            })
             .when('/main', {
                 templateUrl : 'partials/main.html',
                 controller : 'CompanyController'
