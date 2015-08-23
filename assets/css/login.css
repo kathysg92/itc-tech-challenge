@@ -1,4 +1,4 @@
-* { box-sizing:border-box; }
+/** { box-sizing:border-box; }
 
 body {
 	font-family: Helvetica;
@@ -15,9 +15,9 @@ h1, h3 { font-weight: 300; }
 
 h1 { color: #636363; }
 
-h3 { color: #4a89dc; }
+h3 { color: #4a89dc; }*/
 
-form {
+.login-form {
 	width: 380px;
 	margin: 4em auto;
 	padding: 3em 2em 2em 2em;
@@ -31,7 +31,7 @@ form {
 	margin-bottom: 45px; 
 }
 
-input {
+.login-form input {
 	font-size: 18px;
 	padding: 10px 10px 10px 5px;
 	-webkit-appearance: none;
@@ -44,12 +44,12 @@ input {
 	border-bottom: 1px solid #757575;
 }
 
-input:focus { outline: none; }
+.login-form input:focus { outline: none; }
 
 
 /* Label */
 
-label {
+.login-form label {
 	color: #999; 
 	font-size: 18px;
 	font-weight: normal;
@@ -63,7 +63,7 @@ label {
 
 /* active */
 
-input:focus ~ label, input.used ~ label {
+.login-form input:focus ~ label, .login-form input.used ~ label {
 	top: -20px;
   transform: scale(.75); left: -2px;
 	/* font-size: 14px; */
@@ -207,7 +207,7 @@ input:focus ~ .highlight {
   }
 }
 
-footer { text-align: center; }
+/*footer { text-align: center; }
 
 footer p {
 	color: #888;
@@ -234,3 +234,4 @@ footer img {
 footer img:hover { opacity: .83; }
 
 footer img:focus , footer a:focus { outline: none; }
+*/

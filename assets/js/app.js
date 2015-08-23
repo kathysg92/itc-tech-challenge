@@ -39,7 +39,7 @@ techChallenge
                 controller : 'EntryController'
             })
             .when('/login', {
-                templateUrl : 'partials/login',
+                templateUrl : 'partials/_login.html',
                 controller : 'LoginController'
             })
             .otherwise({
