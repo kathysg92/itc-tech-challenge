@@ -166,3 +166,38 @@ techChallenge
 		
 	}
 })
+.controller('LoginController', function ($scope, $mdDialog) {
+
+	function init() {
+	  $scope.status = '  ';
+	  $scope.showLogin = function(ev) {
+	  	// console.log(ev)
+	    $mdDialog.show({
+	      // $scope.parent: angular.element(document.body),
+	      // $scope.controller: '',
+	      templateUrl: 'partials/_login.html',
+	      targetEvent: ev,
+	      clickOutsideToClose:true
+	    })
+	    // .then(function(answer) {
+	    //   $scope.status = 'You said the information was "' + answer + '".';
+	    // }, function() {
+	    //   $scope.status = 'You cancelled the dialog.';
+	    // });
+  };
+	}
+  
+
+})
+
+// function DialogController($scope, $mdDialog) {
+//   $scope.hide = function() {
+//     $mdDialog.hide();
+//   };
+//   $scope.cancel = function() {
+//     $mdDialog.cancel();
+//   };
+//   $scope.answer = function(answer) {
+//     $mdDialog.hide(answer);
+//   };
+// }

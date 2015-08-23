@@ -38,6 +38,10 @@ techChallenge
                 templateUrl : 'partials/entry.html',
                 controller : 'EntryController'
             })
+            .when('/login', {
+                templateUrl : 'partials/login',
+                controller : 'LoginController'
+            })
             .otherwise({
                 redirectTo : '/principal'
             });			
