@@ -26,10 +26,15 @@
         		    	Get More details
         		    </a>
         	  	</div>
-              <div layout="row">
+              <div layout="row" ng-controller="EmailController">
                     <div flex></div>
-                    <md-button type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">question_answer</i></md-button>
-                </div>
+                    <md-button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="showEmail($event)"><i class="material-icons">question_answer</i></md-button>
+
+                    <!-- <md-button class="md-primary md-raised" ng-click="showLogin($event)" flex flex-md="100">
+                      Login
+                  </md-button> -->
+
+              </div>
         	</div>
     	</div>
 	</main>
