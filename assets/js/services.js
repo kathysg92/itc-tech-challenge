@@ -87,6 +87,16 @@ techChallenge.factory('Product', ['$resource',
         }
     ]);
 
+techChallenge.factory('User', ['$resource',
+        function ($resource) {
+
+            var User =  $resource('/user/isauth', {}, {
+                auth : {method: "GET"}
+            });
+            return User;
+        }
+    ]);
+
 techChallenge.factory('Card', ['$resource',
         function ($resource) {
             var apiHost = 'https://api.smartcanvas.com/card/v1/cards/:cardId';

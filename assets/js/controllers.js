@@ -158,7 +158,7 @@ techChallenge
 		
 	}
 })
-.controller('LoginController', function ($scope, $mdDialog) {
+.controller('LoginController', function ($scope, $mdDialog, User) {
 	$scope.status = '  ';
 	$scope.showLogin = function(ev) {
 		$mdDialog.show({
@@ -169,11 +169,15 @@ techChallenge
 		  clickOutsideToClose:true
 		})
 	};
+	
+	var auth = User.auth();
+	if(auth.message == 'hi.'){
+		$scope.isauth = true;		
+	}
 })
 .controller('EmailController', function ($scope, $mdDialog) {
 	$scope.status = '  ';
 	$scope.showEmail = function(ev) {
-		console.log("HOLA MUNDO ")
 		$mdDialog.show({
 		  parent: angular.element(document.body),
 		  controller: 'EmailController',
