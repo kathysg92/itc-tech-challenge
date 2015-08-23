@@ -24,13 +24,16 @@ module.exports = {
 		"phone": { 
 	  		type : "string"
 	  	},
-		"businessWebsite": { 
+		"website": { 
 	  		type : "string"
 	  	},
-		"picture" : { 
+		"ownerManager" : { 
 	  		type : "string"
 	  	},
-	  	"company" : {
+	  	"email" : { 
+	  		type : "string"
+	  	},
+	  	"businessName" : {
 	  		model: "Company"
 	  	}
 	}
