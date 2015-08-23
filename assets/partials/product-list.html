@@ -1,8 +1,8 @@
 <style>
-.demo-card-square.mdl-card {
+/*.demo-card-square.mdl-card {
   width: 320px;
   height: 320px;
-}
+}*/
 .demo-card-square > .mdl-card__title {
   color: #fff;
   background: bottom right 15% no-repeat #46B6AC;
@@ -11,10 +11,10 @@
 <section class="header-large-img-pands mdl-cell mdl-cell--12-col"></section>
 <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
     <main class="mdl-layout__content">
-        <div class="demo-blog__posts mdl-grid">
+        <div class="mdl-grid">
 
 
-        	<div class="demo-card-square mdl-card mdl-shadow--2dp" ng-repeat="product in products">
+        	<div class="demo-card-square mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp" ng-repeat="product in products">
         		<div class="mdl-card__title mdl-card--expand">
         			<h2 class="mdl-card__title-text">{{product.name}}</h2>
         		</div>
@@ -26,12 +26,16 @@
         		    	Get More details
         		    </a>
         	  	</div>
-              <div layout="row">
+              <div layout="row" ng-controller="EmailController">
                     <div flex></div>
-                    <md-button type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">question_answer</i></md-button>
-                </div>
+                    <md-button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="showEmail($event)"><i class="material-icons">question_answer</i></md-button>
+
+                    <!-- <md-button class="md-primary md-raised" ng-click="showLogin($event)" flex flex-md="100">
+                      Login
+                  </md-button> -->
+
+              </div>
         	</div>
     	</div>
 	</main>
 </div>
-
