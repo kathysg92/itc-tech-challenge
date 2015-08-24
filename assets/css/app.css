@@ -127,34 +127,21 @@ md-input-container .md-placeholder:not(.md-select-label), md-input-container lab
 
 /*Companies*/
 
-/*#main-content{
+#main-content{
 	padding-top: 40px;
-}*/
+}
 
 
 .header-large-img-main{
-	background: url(/images/header-banner-large.jpg) center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	/* Set rules to fill background */
-	min-height: 100%;
-	min-width: 1024px;
-
-	/* Set up proportionate scaling */
+	background: url(/images/header-banner-large.jpg) center 100% no-repeat;
+	background-size:cover;
+	-webkit-background-origin:border;
+	height: 450px;
 	width: 100%;
-	height: auto;
-
-	/* Set up positioning */
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: -9001
 }
 
 .header-large-img-blog{
-	background: url(/images/Banner-Blog.png) center 100% no-repeat;
+	background: url(/images/Banner-Blog.jpg) center 100% no-repeat;
 	background-size:cover;
 	-webkit-background-origin:border;
 	height: 450px;
@@ -162,7 +149,7 @@ md-input-container .md-placeholder:not(.md-select-label), md-input-container lab
 }
 
 .header-large-img-pands{
-	background: url(/images/Banner-ProductsAndServices.png) center 100% no-repeat;
+	background: url(/images/Banner-ProductsAndServices.jpg) center 100% no-repeat;
 	background-size:cover;
 	-webkit-background-origin:border;
 	height: 450px;
@@ -170,17 +157,33 @@ md-input-container .md-placeholder:not(.md-select-label), md-input-container lab
 }
 
 .header-large-img-companies{
-	background: url(/images/Banner-Companies.png) center 100% no-repeat;
+	background: url(/images/Banner-Companies.jpg) center 100% no-repeat;
 	background-size:cover;
 	-webkit-background-origin:border;
 	height: 450px;
 	width: 100%;
 }
 
-.main-search{
-	display: block;
-	right: 50%;
-	left: 50%;
-	margin: 0 auto;
+.header-large-img-about{
+	background: url(/images/Banner-About.jpg) center 100% no-repeat;
+	background-size:cover;
+	-webkit-background-origin:border;
+	height: 450px;
+	width: 100%;
+}
 
+.header-large-img-about{
+	background: url(/images/Banner-About.jpg) center 100% no-repeat;
+	background-size:cover;
+	-webkit-background-origin:border;
+	height: 450px;
+	width: 100%;
+}
+
+.header-large-img-frontpage{
+	background: url(/images/Banner-Frontpage.jpg) center 100% no-repeat;
+	background-size:cover;
+	-webkit-background-origin:border;
+	height: 450px;
+	width: 100%;
 }

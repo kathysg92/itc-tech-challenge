@@ -2,7 +2,7 @@
 <html ng-app="techChallenge">
 <head>
 	<meta charset="utf-8">
-	<title>TECH Challenge</title>
+	<title>Woman on Bussiness</title>
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
@@ -50,45 +50,29 @@
 	    <header class="mdl-layout__header">
 		    <div class="mdl-layout__header-row">
 				<!-- Title -->
-				<span class="mdl-layout-title"><a href="#/main"><img src="images/Orchid.png" style="width:5%;height:auto;"> TECH Challenge</a></span>
+				<span class="mdl-layout-title"><a href="#/main"><img src="images/OrchidColor.png" style="width:5%;height:auto;"> Women on Bussiness</a></span>
 				<!-- Add spacer, to align navigation to the right -->
 				<div class="mdl-layout-spacer"></div>
 				<!-- Navigation. We hide it in small screens. -->
 				<div ng-controller="LoginController">
 					<nav class="mdl-navigation mdl-layout--large-screen-only">
 						<!-- <a class="mdl-navigation__link" href="">Login</a> -->
-
-						{{#req.session.auth}}
-							<p>Logged in! <a href='/logout'>logout?</a></p>
-						{{/req.session.auth}}
-						{{^req.session.auth}}
-							<md-button class="md-primary md-raised" ng-click="showLogin($event)" flex flex-md="100">
-							    Login
-							</md-button>
-						{{/req.session.auth}}
-					    <div id="tt1" class="icon material-icons">shopping_cart</div>
-							<div class="mdl-tooltip" for="tt1">
-								Comming Soon
-							</div>
+						<md-button class="md-primary md-raised" ng-click="showLogin($event)" flex flex-md="100">
+						    Login
+						</md-button>
+					    
 					</nav>
 				</div>
 		    </div>
 	    </header>
 	 	<div class="mdl-layout__drawer">
-		    <span class="mdl-layout-title"><a href="/#/main"><img src="images/OrchidColor.png" style="width:30%;height:auto;"> TECH Challenge</a></span>
+		    <span class="mdl-layout-title"><a href="#/main"><img src="images/OrchidColor.png" style="width:30%;height:auto;"> Home</a></span>
 		    <nav class="mdl-navigation">
-
-		    	<a class="mdl-navigation__link" href="/#/about">About</a>
-				<a class="mdl-navigation__link" href="/#/companies">List Companies</a>
-				<a class="mdl-navigation__link" href="/#/products">List Products&Services</a>
-				<a class="mdl-navigation__link" href="/#/blog">Amazing Histories Blog</a>
-				<a class="mdl-navigation__link" href="/#/faq">FAQ</a>
-				{{#req.session.auth}}
-				<p>Logged in! <a href='/logout'>logout?</a></p>
-				{{/req.session.auth}}
-				{{^req.session.auth}}
-				<a class="mdl-navigation__link" href="/#/login">Login</a>
-				{{/req.session.auth}}
+				<a class="mdl-navigation__link" href="#/company/new">New Company</a>
+				<a class="mdl-navigation__link" href="#/products">List Products</a>
+				<a class="mdl-navigation__link" href="#/companies">List Companies</a>
+				<a class="mdl-navigation__link" href="#/blog">Blog</a>
+				<a class="mdl-navigation__link" href="">Login</a>
 		    </nav>
 	  	</div>
 	 	<main class="mdl-layout__content">
