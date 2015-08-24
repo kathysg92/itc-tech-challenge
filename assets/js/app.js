@@ -50,6 +50,14 @@ techChallenge
                 templateUrl : 'partials/_email.html',
                 controller : 'EmailController'
             })
+            //  .when('/faq', {
+            //     // templateUrl : 'partials/_email.html',
+            //     // controller : 'EmailController'
+            // })
+              .when('/about', {
+                templateUrl : 'partials/about.html',
+                controller : 'AboutController'
+            })
             .otherwise({
                 redirectTo : '/main'
             });			
