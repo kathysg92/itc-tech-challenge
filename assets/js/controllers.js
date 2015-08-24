@@ -164,6 +164,7 @@ techChallenge
       $('.mdl-layout__header-row').css('padding-left', '');
       $('.mdh-expandable-search').addClass('mdl-cell--hide-phone').css('margin', '0 50px');
     }
+
     
   });
 })

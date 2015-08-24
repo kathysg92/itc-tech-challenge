@@ -50,16 +50,16 @@ techChallenge
                 templateUrl : 'partials/_email.html',
                 controller : 'EmailController'
             })
+
             .when('/prodDetail', {
                 templateUrl : 'partials/_prodDetail.html',
                 controller : 'ProdDetailController'
             })
-
-            //  .when('/faq', {
-            //     // templateUrl : 'partials/_email.html',
-            //     // controller : 'EmailController'
-            // })
-              .when('/about', {
+            .when('/search', {
+                templateUrl : 'partials/search.html',
+                // controller : ''
+            })
+            .when('/about', {
                 templateUrl : 'partials/about.html',
                 controller : 'AboutController'
             })

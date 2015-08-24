@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
 	<link rel="stylesheet" href="/bower_components/jquery-ui/themes/flick/jquery-ui.css"/>
-	<link rel="stylesheet" type="text/css" href="css/app.css"/>
-	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
-	<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	<link rel="stylesheet" href="css/app.css"/>
+	<link rel="stylesheet" href="css/styles.css"/>
+	<link rel="stylesheet" href="css/login.css"/>
 	
 	<script src="/bower_components/jquery/dist/jquery.js"></script>
 	<script src="/bower_components/jquery-ui/jquery-ui.js"></script>
@@ -28,10 +28,13 @@
 
 
 	<!-- Material Design Lite -->
-	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css">
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.blue_grey-light_blue.min.css">
 	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+	<!-- ADd for Chrome -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
 	<style type="text/css">
 		.demo-content {
@@ -43,40 +46,62 @@
 
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
-<!-- <div ng-controller="LoginController"> -->
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 	    <header class="mdl-layout__header">
 		    <div class="mdl-layout__header-row">
 				<!-- Title -->
-				<span class="mdl-layout-title"><a href="#/main">TECH Challenge</a></span>
+				<span class="mdl-layout-title"><a href="/#/main"><img src="images/Orchid.png" style="width:5%;height:auto;"> TECH Challenge</a></span>
 				<!-- Add spacer, to align navigation to the right -->
 				<div class="mdl-layout-spacer"></div>
 				<!-- Navigation. We hide it in small screens. -->
 				<div ng-controller="LoginController">
 					<nav class="mdl-navigation mdl-layout--large-screen-only">
-						<md-button class="md-primary md-raised" ng-click="showLogin($event)" flex flex-md="100">
-						    Login
-						</md-button>
+						<!-- <a class="mdl-navigation__link" href="">Login</a> -->
+
+						{{#req.session.auth}}
+							<p>Logged in! <a href='/logout'>logout?</a></p>
+						{{/req.session.auth}}
+						{{^req.session.auth}}
+							<md-button class="md-primary md-raised" ng-click="showLogin($event)" flex flex-md="100">
+							    Login
+							</md-button>
+						{{/req.session.auth}}
+					    <div id="tt1" class="icon material-icons">shopping_cart</div>
+							<div class="mdl-tooltip" for="tt1">
+								Comming Soon
+							</div>
 					</nav>
 				</div>
 		    </div>
 	    </header>
 	 	<div class="mdl-layout__drawer">
-		    <span class="mdl-layout-title"><a href="#/main"><img src="images/OrchidColor.png" style="width:5%;height:auto;"> TECH Challenge</a></span>
+		    <span class="mdl-layout-title"><a href="#/main"><img src="images/OrchidColor.png" style="width:30%;height:auto;"> TECH Challenge</a></span>
 		    <nav class="mdl-navigation">
-				<a class="mdl-navigation__link" href="#/companies">List Companies</a>
-				<a class="mdl-navigation__link" href="#/products">List Products&Services</a>
-				<a class="mdl-navigation__link" href="#/blog">Amazing Histories Blog</a>
-				<a class="mdl-navigation__link" href="#/login">Login</a>
+		    	<a class="mdl-navigation__link" href="/#/about">About</a>
+				<a class="mdl-navigation__link" href="/#/companies">List Companies</a>
+				<a class="mdl-navigation__link" href="/#/products">List Products&Services</a>
+				<a class="mdl-navigation__link" href="/#/blog">Amazing Histories Blog</a>
+				<a class="mdl-navigation__link" href="/#/faq">FAQ</a>
+				<a class="mdl-navigation__link" href="/#/login">Login</a>
 		    </nav>
 	  	</div>
 	 	<main class="mdl-layout__content">
-		    <div ng-view class="view-frame">			
-					</div>
+			{{#search-items}}
+				<div class="demo-card-square mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
+	        		<div class="mdl-card__title mdl-card--expand">
+	        			<h2 class="mdl-card__title-text">{{name}}</h2>
+	        		</div>
+	        	  	<div class="mdl-card__actions mdl-card--border">
+	        		    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href='/product/{{id}}'>
+	        		    	More details
+	        		    </a>
+	        	  	</div>
+	            </div>
+            {{/search-items}}
+
 		</main>
 	</div>
-    	<div class="view-container">
-		</div>
-<!-- </div> -->
 </body>
 </html>
+
+

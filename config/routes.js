@@ -21,13 +21,14 @@
  */
 
 module.exports.routes = {
-   '/' : 'MainController.index',
-  'get /login': {
-       view: 'login'
-  },
-  'post /login' : 'AuthController.login',
-  '/logout' : 'AuthController.logout',
-  'get /signup': {
-    view: 'signup'
-  }
+	'/' : 'MainController.index',
+	'post /s' : 'MainController.search',
+	'get /login': {
+	   view: 'login'
+	},
+	'post /login' : 'AuthController.login',
+	'/logout' : 'AuthController.logout',
+	'get /signup': {
+	view: 'signup'
+	}
 };

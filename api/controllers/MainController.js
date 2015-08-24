@@ -12,7 +12,17 @@ module.exports = {
 		}else{
 			req.session.auth = undefined;
 		}		
+
 		return res.view('index.mustache');
+	},
+	search: function(req, res){
+		var searchTerm = req.param('search-text');
+		console.log("searchTerm")
+		var ps = Products.find( { name : { "like" : searchTerm} }, function(err, resp){
+			return res.view('search-result.mustache',{
+				"search-items": resp
+			});
+		});
 	}
 };
 
