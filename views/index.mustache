@@ -52,6 +52,12 @@
 		}
 	</style>
 
+	<script type="text/javascript">
+		function closeDrawer() {
+		  document.getElementById("drawer").className = "mdl-layout__drawer"; 
+		}
+	</script>
+
 </head>
 <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -85,20 +91,20 @@
 				</div>
 		    </div>
 	    </header>
-	 	<div class="mdl-layout__drawer">
-		    <span class="mdl-layout-title"><a href="/#/main"><img src="images/OrchidColor.png" style="width:30%;height:auto;"> TECH Challenge</a></span>
+	 	<div class="mdl-layout__drawer" id='drawer'>
+		    <span class="mdl-layout-title"><a href="/#/main"><img src="images/OrchidColor.png" style="width:30%;height:auto;"></a></span>
 		    <nav class="mdl-navigation">
 
-		    	<a class="mdl-navigation__link" href="/#/about">About</a>
-				<a class="mdl-navigation__link" href="/#/companies">List Companies</a>
-				<a class="mdl-navigation__link" href="/#/products">List Products&Services</a>
-				<a class="mdl-navigation__link" href="/#/blog">Amazing Histories Blog</a>
-				<a class="mdl-navigation__link" href="/#/faq">FAQ</a>
+		    	<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/about">About</a>
+				<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/companies">List Companies</a>
+				<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/products">List Products&Services</a>
+				<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/blog">Amazing Histories Blog</a>
+				<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/faq">FAQ</a>
 				{{#req.session.auth}}
-				<p>Logged in! <a href='/logout'>logout?</a></p>
+				<p>Logged in! <a onclick="closeDrawer()" href='/logout'>logout?</a></p>
 				{{/req.session.auth}}
 				{{^req.session.auth}}
-				<a class="mdl-navigation__link" href="/#/login">Login</a>
+				<a onclick="closeDrawer()" class="mdl-navigation__link" href="/#/login">Login</a>
 				{{/req.session.auth}}
 		    </nav>
 	  	</div>
