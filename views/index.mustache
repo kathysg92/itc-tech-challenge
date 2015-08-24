@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>TECH Challenge</title>
+	<title>Woman on Bussiness</title>
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
@@ -64,14 +64,13 @@
 	    <header class="mdl-layout__header">
 		    <div class="mdl-layout__header-row">
 				<!-- Title -->
-				<span class="mdl-layout-title"><a href="#/main"><img src="images/Orchid.png" style="width:5%;height:auto;"> TECH Challenge</a></span>
+				<span class="mdl-layout-title"><a href="#/main"><img src="images/OrchidColor.png" style="width:5%;height:auto;"> Women on Bussiness</a></span>
 				<!-- Add spacer, to align navigation to the right -->
 				<div class="mdl-layout-spacer"></div>
 				<!-- Navigation. We hide it in small screens. -->
 				<div ng-controller="LoginController">
 					<nav class="mdl-navigation mdl-layout--large-screen-only">
 						<!-- <a class="mdl-navigation__link" href="">Login</a> -->
-
 						{{#req.session.auth}}
 							<p>Logged in! <a href='/logout'>logout?</a></p>
 						{{/req.session.auth}}
