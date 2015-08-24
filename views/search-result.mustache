@@ -99,7 +99,16 @@
 	            </div>
             {{/search-items}}
             {{^search-items}}
-            	<p>The search that you used did not matched anything</p>
+
+            	<div class="mdl-card mdl-shadow--2dp" style="display:block; left: 0; top: 30%; margin: 0 auto; vertical-align: middle;">
+            	  <div class="mdl-card__title">
+            	    <h2 class="mdl-card__title-text">  <i class="large material-icons">info</i> &nbsp; Nothing found!</h2>
+            	  </div>
+            	  <div class="mdl-card__supporting-text">
+            	    <p>The search that you used did not matched anything</p>
+            	  </div>
+            	</div>
+            	
             {{/search-items}}
 
 		</main>
