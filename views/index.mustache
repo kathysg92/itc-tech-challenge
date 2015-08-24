@@ -70,6 +70,9 @@
 							<p>Logged in! <a href='/logout'>logout?</a></p>
 						{{/req.session.auth}}
 						{{^req.session.auth}}
+							<md-button class="" ng-href="/#/register">
+							    Signup
+							</md-button>
 							<md-button class="md-primary md-raised" ng-click="showLogin($event)" flex flex-md="100">
 							    Login
 							</md-button>

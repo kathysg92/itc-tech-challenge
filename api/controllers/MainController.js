@@ -17,7 +17,7 @@ module.exports = {
 	},
 	search: function(req, res){
 		var searchTerm = req.param('search-text');
-		var ps = Products.find( { name : { "like" : searchTerm} }, function(err, resp){
+		var ps = Products.find( { name : { "like" : '%'+searchTerm+'%' } }, function(err, resp){
 			return res.view('search-result.mustache',{
 				"search-items": resp
 			});

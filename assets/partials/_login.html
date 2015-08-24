@@ -4,7 +4,7 @@
       <h2>Login</h2>
       <span flex></span>
       <md-button class="md-icon-button" ng-click="answer('not applicable')">
-        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        <md-icon md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
       </md-button>
     </div>
   </md-toolbar>
@@ -22,9 +22,7 @@
       <!-- button type="button" class="button buttonBlue">Log in
         <div class="ripples buttonRipples" onclick='submit()'><span class="ripplesCircle"></span></div>
       </button> -->
-      <p class="contextual-nav"><a href="#/company/new">Do not have an account yet? Register </a></p>
-      <br />
-      <p id="nav"> <a>Lost your password?</a></p>
+      <p class="contextual-nav"><a href="#/register" ng-click="answer('not applicable')">Do not have an account yet? Register </a></p>
     </form>
   </md-content>
 </md-dialog>

@@ -194,6 +194,18 @@ techChallenge
 		  clickOutsideToClose:true
 		})
 	};
+
+	$scope.hide = function() {
+		$mdDialog.hide();
+	};
+
+	$scope.cancel = function() {
+		$mdDialog.cancel();
+	};
+	
+	$scope.answer = function(answer) {
+		$mdDialog.hide(answer);
+	};
 })
 .controller('EmailController', function ($scope, $mdDialog) {
 	$scope.status = '  ';
