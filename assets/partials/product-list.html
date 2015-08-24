@@ -46,15 +46,17 @@
 	        		<div class="mdl-card__supporting-text">
 	        			{{product.description}}
 	        		</div>
-        	  	<div class="mdl-card__actions mdl-card--border">
-        		    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href='{{product.url}}'>
-        		    	Get More details
-        		    </a>
-        	  	</div>
-              <div layout="row">
+              <div ng-controller="ProdDetailController" >
+            	  	<div class="mdl-card__actions mdl-card--border" >
+            		    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="showProdDetail($event)">  <!--href='{{product.id}}       -->
+            		    	More details
+            		    </a>
+            	  	</div>
+              </div>
+              <div layout="row" ng-controller="EmailController">
                     <div flex></div>
-                    <md-button type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">question_answer</i></md-button>
-                </div>
+                    <md-button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="showEmail($event)"><i class="material-icons">question_answer</i></md-button>
+              </div>
         	</div>
     	</div>
 	</main>
