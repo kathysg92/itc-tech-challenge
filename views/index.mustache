@@ -77,12 +77,18 @@
 	 	<div class="mdl-layout__drawer">
 		    <span class="mdl-layout-title"><a href="/#/main"><img src="images/OrchidColor.png" style="width:30%;height:auto;"> TECH Challenge</a></span>
 		    <nav class="mdl-navigation">
+
 		    	<a class="mdl-navigation__link" href="/#/about">About</a>
 				<a class="mdl-navigation__link" href="/#/companies">List Companies</a>
 				<a class="mdl-navigation__link" href="/#/products">List Products&Services</a>
 				<a class="mdl-navigation__link" href="/#/blog">Amazing Histories Blog</a>
 				<a class="mdl-navigation__link" href="/#/faq">FAQ</a>
+				{{#req.session.auth}}
+				<p>Logged in! <a href='/logout'>logout?</a></p>
+				{{/req.session.auth}}
+				{{^req.session.auth}}
 				<a class="mdl-navigation__link" href="/#/login">Login</a>
+				{{/req.session.auth}}
 		    </nav>
 	  	</div>
 	 	<main class="mdl-layout__content">

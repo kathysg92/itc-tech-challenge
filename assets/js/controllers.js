@@ -178,6 +178,11 @@ techChallenge
 		
 	}
 })
+.controller('AboutController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
 .controller('LoginController', function ($scope, $mdDialog, User) {
 	$scope.status = '  ';
 	$scope.showLogin = function(ev) {
