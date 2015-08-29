@@ -93,7 +93,7 @@ techChallenge
 	};
 	
 	$scope.syncCardModel = function () {
-		Company.toCard($scope.company, $scope.card);
+		// Company.toCard($scope.company, $scope.card);
 	};
 	
 	$scope.validateImage = function () {
@@ -115,18 +115,27 @@ techChallenge
 		return true;
 	};
 	
-	$scope.saveCompany = function() {
-		if (this.validImage) {
-			$log.debug($scope.card);
-			showToast("Saving company info...", null, true);
-			if ($scope.card.id) {
-				updateCompanyCard();
-			} else {
-				createCompanyCard();
-			}
-		} else {
-			showErrorMessage(null, 'The company logo url doesn\'t point to an image.');
-		}
+	$scope.saveCompany = function(company) {
+		console.log("here")
+		// {
+		// 	companyName: "test",
+		// 	country: "Costa Rica",
+		// 	logo: "Link",
+		// 	name: "Testing nodes"
+		// }
+		console.log(Company.create(company));
+
+		// if (this.validImage) {
+		// 	$log.debug($scope.card);
+		// 	showToast("Saving company info...", null, true);
+		// 	if ($scope.card.id) {
+		// 		updateCompanyCard();
+		// 	} else {
+		// 		createCompanyCard();
+		// 	}
+		// } else {
+		// 	showErrorMessage(null, 'The company logo url doesn\'t point to an image.');
+		// }
 	}
 
 	$scope.companies = Company.get();

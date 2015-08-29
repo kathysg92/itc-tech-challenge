@@ -9,19 +9,20 @@ module.exports = {
 
   attributes: {
   	"logo" : { 
-  		type : "string",
-  		required : true
-  	},
-    "company name" : { 
-  		type : "string",
-  		required : true
+  		type : "string"
   	},
     "website" : { 
   		type : "string"
   	},
+    "address" : { 
+      type : "string"
+    },
     "profile" : { 
   		type : "string",
   	},
+    "phone" : { 
+      type : "string"
+    },
     "url" : { 
   		type : "string"
   	},
@@ -39,7 +40,7 @@ module.exports = {
   		type : "string",
   		required : true
   	},
-    "YearofEstablishment" : { 
+    "yearofEstablishment" : { 
   		type : "datetime"
   	},
     "#ofPermanentEmployees" : { 
