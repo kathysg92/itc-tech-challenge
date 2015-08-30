@@ -86,11 +86,15 @@ techChallenge
             })
             .when('/search', {
                 templateUrl : 'partials/search.html',
-                // controller : ''
+                controller : 'NotificationController'
             })
             .when('/about', {
                 templateUrl : 'partials/about.html',
                 controller : 'AboutController'
+            })
+            .when('/notifications', {
+                templateUrl : 'partials/notifications.html',
+                controller : 'NotificationController'
             })
             .otherwise({
                 redirectTo : '/main'

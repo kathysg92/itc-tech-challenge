@@ -20,6 +20,10 @@ module.exports = {
     		res.status(201);
     		res.redirect('/');
     	});
+    },
+    activeUser : function(req, res){
+        console.log(req.session.passport)
+        res.send(req.session.passport.user)
     }
 };
 
