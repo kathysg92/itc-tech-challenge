@@ -195,7 +195,9 @@ md-input-container .md-placeholder:not(.md-select-label), md-input-container lab
 }
 
 .header-large-img-frontpage{
-	background: url(/images/Banner-Frontpage.jpg) center left no-repeat;
+	background: url(/images/Banner-Frontpage.jpg) center left no-repeat;	
+    background-repeat: no-repeat;
+    background-position: 80% auto;
 	background-size:cover;
 	-webkit-background-origin:border;
 	height: 450px;
@@ -203,7 +205,10 @@ md-input-container .md-placeholder:not(.md-select-label), md-input-container lab
 }
 
 .header-img-top5{
-	background: url(/images/Top5.png) center left no-repeat;
+	background: url(/images/Top5.png) center center no-repeat;
+	background-repeat: no-repeat;
+    background-position: 70% auto;
+	background-size:cover;
 	background-size:cover;
 	-webkit-background-origin:border;
 	height: 295px;
