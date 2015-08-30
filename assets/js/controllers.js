@@ -227,6 +227,11 @@ techChallenge
 		
 	}
 })
+.controller('InfographicController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
 .controller('AboutController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	function init() {
 		
@@ -256,9 +261,9 @@ techChallenge
 		$mdDialog.hide(answer);
 	};
 })
-.controller('StoryController', function ($scope, $mdDialog, User) {
+.controller('StoryController', function ($scope, $mdDialog) {
 	$scope.status = '  ';
-	$scope.addStory = function(ev) {
+	$scope.formAddStory = function(ev) {
 		$mdDialog.show({
 		  parent: angular.element(document.body),
 		  controller: 'StoryController',
@@ -267,6 +272,24 @@ techChallenge
 		  clickOutsideToClose:true
 		})
 	};
+	$scope.cancel = function() {
+		$mdDialog.cancel();
+	};
+	
+	$scope.addStory = function(story) {		
+		var newStory = Story.create(story);		
+		var failed = 0;
+		newStory.$promise.catch(function(){
+			showToast("Failed to add the story, make sure you are logged in, title and description must be filled up!", 5000, true);
+			failed = 1;
+		}).then(function(){
+			if(failed == 0){
+				showToast("Story added!", 5000, true);
+				$location.path( "#/blog" );		
+			}
+		});
+	}
+
 })
 
 .controller('EmailController', function ($scope, $mdDialog) {
@@ -286,16 +309,6 @@ techChallenge
 	};
 
 })
-
-	 //  $scope.showProdDetail = function(ev) {
-  //   	$mdDialog.show({
-		//   parent: angular.element(document.body),
-		//   controller: 'ProdDetailController',
-		//   templateUrl: 'partials/_prodDetail.html',
-		//   targetEvent: ev,
-		//   clickOutsideToClose:true
-		// })
-  //   };
 function submitLogin(){
 	document.forms["LoginForm"].submit();
 }
