@@ -18,9 +18,9 @@ techChallenge
                 templateUrl : 'partials/company.html',
                 controller : 'CompanyController'
                 })
-            .when('/company/:id/edit', {
-                templateUrl : 'partials/company.html',
-                controller : 'CompanyController'
+            .when('/company/:id', {
+                templateUrl : 'partials/_companyDetail.html',
+                controller : 'CompanyListController'
             })
             .when('/companies', {
                 templateUrl : 'partials/company-list.html',
@@ -34,6 +34,10 @@ techChallenge
                 templateUrl : 'partials/product-new.html',
                 controller : 'ProductController'
             })
+            .when('/product/:id', {
+                templateUrl : 'partials/_prodDetail.html',
+                controller : 'ProductListController'
+            })
             .when('/main', {
                 templateUrl : 'partials/main.html',
                 controller : 'CompanyController'
@@ -46,6 +50,19 @@ techChallenge
                 templateUrl : 'partials/entry.html',
                 controller : 'EntryController'
             })
+            .when('/entry2', {
+                templateUrl : 'partials/entry2.html',
+                controller : 'EntryController2'
+            })
+            .when('/entry3', {
+                templateUrl : 'partials/entry3.html',
+                controller : 'EntryController3'
+            })
+            .when('/entry4', {
+                templateUrl : 'partials/entry4.html',
+                controller : 'EntryController4'
+            })
+
             .when('/login', {
                 templateUrl : 'partials/_login.html',
                 controller : 'LoginController'

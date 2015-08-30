@@ -9,10 +9,18 @@ module.exports = {
 
   attributes: {
   	"logo" : { 
-  		type : "string"
+  		type : "string",
+  		required : true
+  	},
+    "name" : { 
+  		type : "string",
+  		required : true
   	},
     "website" : { 
   		type : "string"
+  	},
+    "owner" : { 
+  		type : "string",
   	},
     "address" : { 
       type : "string"
@@ -23,15 +31,6 @@ module.exports = {
     "phone" : { 
       type : "string"
     },
-    "url" : { 
-  		type : "string"
-  	},
-    "qrURL" : { 
-  		type : "string"
-  	},
-    "role" : { 
-  		type : "string"
-  	},
     "name" : { 
   		type : "string",
   		required : true
@@ -40,27 +39,28 @@ module.exports = {
   		type : "string",
   		required : true
   	},
-    "yearofEstablishment" : { 
+
+    "YearOfEstablishment" : { 
   		type : "datetime"
   	},
-    "#ofPermanentEmployees" : { 
+    "numOfPermanentEmployees" : { 
   		type : "integer"
   	},
-    "#ofFemaleEmployees" : { 
+    "numOfFemaleEmployees" : { 
   		type : "integer"
   	},
-    "%ofthebusinessownedbyWomen" : { 
+    "businessOwnedbyWomen" : { 
   		type : "integer"
   	},
-    "ManagedandControlledbyWomen" : {
+    "managedandControlledbyWomen" : {
     	type: 'string',
         enum: ['yes', 'no', 'm', 'mm'],
         defaultsTo: 'yes'
     },
-    "Certifications:" : { 
+    "certifications:" : { 
   		type : "string"
   	},
-    "Memberof(Intitution/Association) :" : { 
+    "memberof(Intitution/Association) :" : { 
   		type : "string"
   	},
     "description" : { 
