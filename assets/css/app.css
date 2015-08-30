@@ -140,58 +140,55 @@ md-input-container .md-placeholder:not(.md-select-label), md-input-container lab
 	padding-top: 40px;
 }
 
+.header-banner{
+	background-size:cover;
+    background-position: 50% auto;
+	-webkit-background-origin:border;
+	height: 200px;
+	width: 100%;
+}
 
 .header-large-img-main{
 	background: url(/images/header-banner-large.jpg) center 100% no-repeat;
-	background-size:cover;
-	-webkit-background-origin:border;
-	height: 450px;
-	width: 100%;
 }
 
 .header-large-img-blog{
-	background: url(/images/Banner-Blog.jpg) center 100% no-repeat;
-	background-size:cover;
-	-webkit-background-origin:border;
-	height: 450px;
-	width: 100%;
+	background: url(/images/Banner-Blog.jpg) bottom left no-repeat;
 }
 
-.header-large-img-pands{
-	background: url(/images/Banner-ProductsAndServices.jpg) center 100% no-repeat;
-	background-size:cover;
-	-webkit-background-origin:border;
-	height: 450px;
-	width: 100%;
-}
 
 .header-large-img-companies{
-	background: url(/images/Banner-Companies.jpg) center 100% no-repeat;
-	background-size:cover;
-	-webkit-background-origin:border;
-	height: 450px;
-	width: 100%;
+	background: url(/images/Banner-Companies.jpg) bottom left no-repeat;
 }
 
-.header-large-img-about{
-	background: url(/images/Banner-About.jpg) center 100% no-repeat;
-	background-size:cover;
-	-webkit-background-origin:border;
-	height: 450px;
-	width: 100%;
-}
+
 .header-large-img-entry{
-	background: url(/images/Banner-Companies.png) center 100% no-repeat; /*cambiar imagen */
-	background-size:cover;
-	-webkit-background-origin:border;
-	height: 450px;
-	width: 100%;
+	background: url(/images/Banner-Companies.png) bottom left no-repeat;
 }
 .main-search{
 	display: block;
 	right: 50%;
 	left: 50%;
 	margin: 0 auto;
+}
+
+/* Some of this methods are not using .header-banner, becuase some classes are overwritting the attributes. */
+.header-large-img-about{
+	background: url(/images/Banner-About.jpg) bottom left no-repeat;
+	background-size:cover;
+    background-position: 50% auto;
+	-webkit-background-origin:border;
+	height: 200px;
+	width: 100%;
+}
+
+.header-large-img-pands{
+	background: url(/images/Banner-ProductsAndServices.jpg) bottom left no-repeat;
+	background-size:cover;
+    background-position: 50% auto;
+	-webkit-background-origin:border;
+	height: 200px;
+	width: 100%;
 }
 
 .header-large-img-frontpage{
@@ -208,7 +205,6 @@ md-input-container .md-placeholder:not(.md-select-label), md-input-container lab
 	background: url(/images/Top5.png) center center no-repeat;
 	background-repeat: no-repeat;
     background-position: 70% auto;
-	background-size:cover;
 	background-size:cover;
 	-webkit-background-origin:border;
 	height: 295px;
