@@ -67,6 +67,10 @@ techChallenge
                 templateUrl : 'partials/_login.html',
                 controller : 'LoginController'
             })
+            .when('/story', {
+                templateUrl : 'partials/_addStory.html',
+                controller : 'StoryController'
+            })
             .when('/register', {
                 templateUrl : 'partials/register.html',
                 // controller : 'LoginController'

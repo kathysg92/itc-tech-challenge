@@ -256,6 +256,19 @@ techChallenge
 		$mdDialog.hide(answer);
 	};
 })
+.controller('StoryController', function ($scope, $mdDialog, User) {
+	$scope.status = '  ';
+	$scope.addStory = function(ev) {
+		$mdDialog.show({
+		  parent: angular.element(document.body),
+		  controller: 'StoryController',
+		  templateUrl: 'partials/_addStory.html',
+		  targetEvent: ev,
+		  clickOutsideToClose:true
+		})
+	};
+})
+
 .controller('EmailController', function ($scope, $mdDialog) {
 	$scope.status = '  ';
 
