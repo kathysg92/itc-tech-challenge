@@ -179,7 +179,7 @@ techChallenge
 		});
 	}
 })
-.controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company, Product) {
+.controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	$('.mdh-toggle-search').click(function() {
 	    // No search bar is currently shown
 	    if ($(this).find('i').text() == 'search') {
@@ -234,7 +234,7 @@ techChallenge
 		
 	}
 })
-.controller('LoginController', function ($scope, $mdDialog) {
+.controller('LoginController', function ($scope, $mdDialog, User) {
 	$scope.status = '  ';
 	$scope.showLogin = function(ev) {
 		$mdDialog.show({
@@ -258,22 +258,29 @@ techChallenge
 		$mdDialog.hide(answer);
 	};
 })
+.controller('StoryController', function ($scope, $mdDialog, User) {
+	$scope.status = '  ';
+	$scope.addStory = function(ev) {
+		$mdDialog.show({
+		  parent: angular.element(document.body),
+		  controller: 'StoryController',
+		  templateUrl: 'partials/_addStory.html',
+		  targetEvent: ev,
+		  clickOutsideToClose:true
+		})
+	};
+})
+
 .controller('EmailController', function ($scope, $mdDialog) {
 	$scope.status = '  ';
 
-	$scope.showEmail = function(selectedProduct, id) {
+	$scope.showEmail = function() {
 		$mdDialog.show({
 		  parent: angular.element(document.body),
-		  controller: 'DialogNotificationController',
+		  controller: 'EmailController',
 		  templateUrl: 'partials/_email.html',
-		  clickOutsideToClose:true,
-		  hasBackdrop: true,
-		  locals: { 
-		  	"selectedProduct": selectedProduct,
-		  	"id" : id
-		  },
-		  bindToController: true
-		});	 	
+		  clickOutsideToClose:true
+		});	
 	};
 
 	$scope.cancel = function() {
@@ -336,19 +343,17 @@ techChallenge
 		$scope.cancel();
 	};
 })
-.controller('NotificationController', function ($http, $scope) {
-	$http.get("/User/activeUser").then(function(res){
-		console.log(res.data)
-		$http.post(
-			"/notification/getUserNotifications", 
-			{ "user" : res.data }
-		).then(function(res){
-			console.log(res)
-			$scope.notifications = res.data;
-		});
-	});
 
-	$scope.acknowlegdeNotification = function(){
-		
-	}
-});
+	 //  $scope.showProdDetail = function(ev) {
+  //   	$mdDialog.show({
+		//   parent: angular.element(document.body),
+		//   controller: 'ProdDetailController',
+		//   templateUrl: 'partials/_prodDetail.html',
+		//   targetEvent: ev,
+		//   clickOutsideToClose:true
+		// })
+  //   };
+function submitLogin(){
+	document.forms["LoginForm"].submit();
+}
+
