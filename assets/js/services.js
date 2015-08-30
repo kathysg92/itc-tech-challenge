@@ -108,10 +108,20 @@ techChallenge.factory('Product', ['$resource',
 techChallenge.factory('User', ['$resource',
         function ($resource) {
 
-            var User =  $resource('/user/isauth', {}, {
-                auth : {method: "GET"}
+            var User =  $resource('/user', {}, {
+                getOne : {method: "GET"}
             });
             return User;
+        }
+    ]);
+
+techChallenge.factory('Notification', ['$resource',
+        function ($resource) {
+
+            var Notification =  $resource('/notification', {}, {
+                create : {method: "POST"}
+            });
+            return Notification;
         }
     ]);
 

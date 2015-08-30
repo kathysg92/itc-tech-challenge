@@ -232,7 +232,7 @@ techChallenge
 		
 	}
 })
-.controller('LoginController', function ($scope, $mdDialog, User) {
+.controller('LoginController', function ($scope, $mdDialog) {
 	$scope.status = '  ';
 	$scope.showLogin = function(ev) {
 		$mdDialog.show({
@@ -259,31 +259,73 @@ techChallenge
 .controller('EmailController', function ($scope, $mdDialog) {
 	$scope.status = '  ';
 
-	$scope.showEmail = function() {
+	$scope.showEmail = function(selectedProduct, id) {
 		$mdDialog.show({
 		  parent: angular.element(document.body),
-		  controller: 'EmailController',
+		  controller: 'DialogNotificationController',
 		  templateUrl: 'partials/_email.html',
-		  clickOutsideToClose:true
-		});	
+		  clickOutsideToClose:true,
+		  hasBackdrop: true,
+		  locals: { 
+		  	"selectedProduct": selectedProduct,
+		  	"id" : id
+		  },
+		  bindToController: true
+		});	 	
 	};
+
+	$scope.cancel = function() {
+		$mdDialog.cancel();
+	};	
+
+})
+.controller('DialogNotificationController', function ($http, $scope, $mdDialog, selectedProduct, id, Notification, Product, User) {
+	$scope.selectedProduct = selectedProduct;
 
 	$scope.cancel = function() {
 		$mdDialog.cancel();
 	};
 
+	$scope.messageIsSet = function () {
+		if ($scope.notificationSend.$pristine) {
+			return false;
+		}
+		if ($scope.notificationSend.$invalid) {
+			return false;
+		}
+		return true;
+	};
+
+	$scope.sendNotification = function(notification){
+		var UserProduct = Product.getOne({"id" : id}).$promise.then(function(product){			
+			var UserCompany = User.getOne({"id": product.company.user }).$promise.then(function(user){
+				$http.post("/User/activeUser").then(function(res){
+					console.log(Notification.create({
+						to: user.id,
+						from: res.data,
+						message: notification, 
+						product: UserProduct
+					}));
+				});
+			});
+			
+		});
+		$scope.cancel();
+	};
 })
+.controller('NotificationController', function ($http, $scope) {
+	$http.get("/User/activeUser").then(function(res){
+		console.log(res.data)
+		$http.post(
+			"/notification/getUserNotifications", 
+			{ "user" : res.data }
+		).then(function(res){
+			console.log(res)
+			$scope.notifications = res.data;
+		});
+	});
 
-	 //  $scope.showProdDetail = function(ev) {
-  //   	$mdDialog.show({
-		//   parent: angular.element(document.body),
-		//   controller: 'ProdDetailController',
-		//   templateUrl: 'partials/_prodDetail.html',
-		//   targetEvent: ev,
-		//   clickOutsideToClose:true
-		// })
-  //   };
-function submitLogin(){
-	document.forms["LoginForm"].submit();
-}
-
+	$scope.acknowlegdeNotification = function(){
+		
+	}
+});

@@ -1,4 +1,4 @@
-<md-dialog ng-controller='EmailController'>
+<md-dialog>
   <md-toolbar>
     <div class="md-toolbar-tools">
       <h2>Contact the Vendor</h2>
@@ -10,11 +10,11 @@
   </md-toolbar>
   <md-content style="max-width:800px;max-height:810px;"> 
 
-    <form id='LoginForm' class='login-form'>
+    <form name="notificationSend" class='login-form'>
     <p>Use this form to send a message to the supplier of the product/service, we will let him know that you are interested in their products using our notification system. </p>
-    <!-- <div class="group">
+    <div class="group">
         <label>Product Name: {{selectedProduct}}</label>
-      </div> -->
+      </div>
     <!--<div class="group">
       	<label>To: Vendor Email </label>
 	  </div> -->
@@ -26,7 +26,7 @@
        <div class="group">
        <md-input-container flex>
         <!-- <input type="text" name="from"><span class="highlight"></span><span class="bar"></span> -->
-        <textarea ng-model="notification.description" md-maxlength="5000" column="1" rows="1"><span class="highlight"></span><span class="bar"></textarea>
+        <textarea aria-label="Message" ng-model="notification" md-maxlength="5000" column="1" rows="3" required><span class="highlight"></span><span class="bar"></textarea>
         <label>Message</label>
         </md-input-container>
       </div>
@@ -36,7 +36,7 @@
           <md-button ng-click="cancel()"> <!---->
            Cancel
           </md-button>
-          <md-button ng-click="sendNotification()" style="margin-right:20px;">
+          <md-button ng-click="sendNotification(notification)" ng-disabled="!messageIsSet()" style="margin-right:20px;">
             Send
           </md-button>
         </div>
