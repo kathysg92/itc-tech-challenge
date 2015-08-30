@@ -6,6 +6,14 @@
  */
 
 module.exports = {
-	
+	'create': function(req, res, next){
+		var params = req.params.all();
+		params.user = req.session.passport.user; // we add the user that is currently adding the company.
+		Company.create(params, function(err, company){
+			if (err) return next(err);
+			res.status(201);
+			res.json(company);
+		});
+	}
 };
 

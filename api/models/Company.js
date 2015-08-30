@@ -15,6 +15,7 @@ module.exports = {
     "name" : { 
   		type : "string",
   		required : true
+  		type : "string"
   	},
     "website" : { 
   		type : "string"
@@ -22,10 +23,24 @@ module.exports = {
     "owner" : { 
   		type : "string",
   	},
-    "country" : { 
+    "address" : { 
+      type : "string"
+    },
+    "profile" : { 
+  		type : "string",
+  	},
+    "phone" : { 
+      type : "string"
+    },
+    "name" : { 
   		type : "string",
   		required : true
   	},
+  "country" : { 
+  		type : "string",
+  		required : true
+  	},
+
     "YearOfEstablishment" : { 
   		type : "datetime"
   	},

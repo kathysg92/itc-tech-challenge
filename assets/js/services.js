@@ -75,6 +75,7 @@ techChallenge.factory('Company', ['$templateCache', '$log', '$resource',
             return $resource('/company', {}, {
                 get : {method: "GET", isArray: true},
                 getOne : {method: "GET"}
+                create: {method: "POST"}
             });
             
         }

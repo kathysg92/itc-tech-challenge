@@ -3,7 +3,7 @@
 /* Controllers */
 
 techChallenge
-.controller('CompanyController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+.controller('CompanyController', function ($location, $window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
     function init() {
 		$scope.validImage = false;
 		$scope.card = new Card();
@@ -92,10 +92,6 @@ techChallenge
 		}
 	};
 	
-	$scope.syncCardModel = function () {
-		Company.toCard($scope.company, $scope.card);
-	};
-	
 	$scope.validateImage = function () {
 		if ($scope.company.logoImgUrl) {
 			if (!$scope.company.logoImgUrl.indexOf('http') == 0) {
@@ -115,18 +111,20 @@ techChallenge
 		return true;
 	};
 	
-	$scope.saveCompany = function() {
-		if (this.validImage) {
-			$log.debug($scope.card);
-			showToast("Saving company info...", null, true);
-			if ($scope.card.id) {
-				updateCompanyCard();
-			} else {
-				createCompanyCard();
+	$scope.saveCompany = function(company) {		
+		var comp = Company.create(company);		
+		console.log(comp)
+		console.log(comp.$promise.$$state.status)
+		var failed = 0;
+		comp.$promise.catch(function(){
+			showToast("Failed to add company, make sure you are logged in, company name and country must be filled up!", 5000, true);
+			failed = 1;
+		}).then(function(){
+			if(failed == 0){
+				showToast("Company added!", 5000, true);
+				$location.path( "/" );		
 			}
-		} else {
-			showErrorMessage(null, 'The company logo url doesn\'t point to an image.');
-		}
+		});
 	}
 
 	$scope.companies = Company.get();
