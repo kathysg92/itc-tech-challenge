@@ -73,7 +73,9 @@
 					<nav class="mdl-navigation mdl-layout--large-screen-only">
 										
 						{{#req.session.auth}}
-							<p>Logged in! <a href='/logout'>logout?</a></p>
+							<md-button class="">
+							    Logged in! <a href='/logout'>logout?</a>
+							</md-button>
 						{{/req.session.auth}}
 						{{^req.session.auth}}
 							<md-button class="" ng-href="/#/register">
@@ -109,6 +111,9 @@
 						{{/req.session.auth}}
 					</nav>
 				</div>
+				{{#req.session.auth}}
+					<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/company/new">New Company</a>
+				{{/req.session.auth}}
 				<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/companies">List Companies</a>
 				<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/products">List Products&Services</a>
 				<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/blog">Amazing Histories Blog</a>
