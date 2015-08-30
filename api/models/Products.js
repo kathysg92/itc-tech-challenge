@@ -33,8 +33,9 @@ module.exports = {
 	  	"email" : { 
 	  		type : "string"
 	  	},
-	  	"businessName" : {
-	  		model: "Company"
+	  	"company" : {
+	  		model: "Company",
+	  		required: true
 	  	}
 	}
 };

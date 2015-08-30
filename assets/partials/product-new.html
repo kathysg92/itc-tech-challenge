@@ -1,0 +1,44 @@
+<div id="main-content" layout="column" class="content-container">
+		<div class="content-block">
+			<div layout layout-sm="column" class="content-block-title">
+				<h4>Product Creation</h4>
+			</div>
+			<md-input-container class="md-icon-float" flex="50" flex-sm>
+				<md-icon md-font-icon="icon-ic_perm_identity_48px"></md-icon>
+				<label>Product Name</label>
+				<input ng-model="product.name" required>
+			</md-input-container>
+			<md-input-container>
+				<md-select ng-model="product.company" placeholder="Select your company" ng-model="company" >
+				    <md-option  ng-value="company.name" ng-repeat="company in userCompanies">{{company.name}}</md-option>				
+				</md-select>
+			<md-input-container>	
+		</div>
+		<div class="content-block-bottom">
+			<div layout="row">
+                <div flex></div>
+                <md-button class="md-primary md-raised" type="button" aria-label="Save" ng-click="saveProduct(product)">Save Product</md-button>
+            </div>
+		</div>
+	</md-content>
+</div>
+<div class="mdl-layout__obfuscator"></div>
+<footer class="mdl-mini-footer">
+  <div class="mdl-mini-footer--left-section">
+    <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
+      <span class="visuallyhidden">Twitter</span>
+    </button>
+    <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
+      <span class="visuallyhidden">Facebook</span>
+    </button>
+    <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus">
+      <span class="visuallyhidden">Google Plus</span>
+    </button>
+  </div>
+  <div class="mdl-mini-footer--right-section">
+    <button class="mdl-mini-footer--social-btn social-btn__share">
+      <i class="material-icons" role="presentation">share</i>
+      <span class="visuallyhidden">share</span>
+    </button>
+  </div>
+</footer>

@@ -30,6 +30,10 @@ techChallenge
                 templateUrl : 'partials/product-list.html',
                 controller : 'ProductListController'
             })
+            .when('/product/new', {
+                templateUrl : 'partials/product-new.html',
+                controller : 'ProductController'
+            })
             .when('/product/:id', {
                 templateUrl : 'partials/_prodDetail.html',
                 controller : 'ProductListController'
