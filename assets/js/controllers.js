@@ -179,7 +179,7 @@ techChallenge
 		});
 	}
 })
-.controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+.controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company, Product) {
 	$('.mdh-toggle-search').click(function() {
 	    // No search bar is currently shown
 	    if ($(this).find('i').text() == 'search') {
@@ -274,12 +274,18 @@ techChallenge
 .controller('EmailController', function ($scope, $mdDialog) {
 	$scope.status = '  ';
 
-	$scope.showEmail = function() {
+	$scope.showEmail = function(selectedProduct, id) {
 		$mdDialog.show({
 		  parent: angular.element(document.body),
-		  controller: 'EmailController',
+		  controller: 'DialogNotificationController',
 		  templateUrl: 'partials/_email.html',
-		  clickOutsideToClose:true
+		  clickOutsideToClose:true,
+		  hasBackdrop: true,
+		  locals: { 
+		  	"selectedProduct": selectedProduct,
+		  	"id" : id
+		  },
+		  bindToController: true
 		});	
 	};
 
@@ -322,38 +328,62 @@ techChallenge
 
 	$scope.sendNotification = function(notification){
 		Product.getOne({"id" : id}).$promise.then(function(product){	
-
 			if(!product.company.user){
 				showToast("This item does not have an user assigned!", 10000);
 				return;
+			}else{
+				User.getOne({"id": product.company.user }).$promise.then(function(user){
+					$http.post("/User/activeUser").then(function(res){
+						console.log(Notification.create({
+							to: user.id,
+							from: res.data,
+							message: notification, 
+							product: product
+						}));
+					});
+				});
 			}
 
-			User.getOne({"id": product.company.user }).$promise.then(function(user){
-				$http.post("/User/activeUser").then(function(res){
-					console.log(Notification.create({
-						to: user.id,
-						from: res.data,
-						message: notification, 
-						product: product
-					}));
-				});
-			});
+			
 			
 		});
 		$scope.cancel();
 	};
+
+
 })
+.controller('NotificationController', function ($http, $scope) {
+	$http.get("/User/activeUser").then(function(res){
+		console.log(res.data)
+		if(res.data){
+			$scope.loggedIn = true;
+		}else{
+			$scope.loggedIn = false;
+		}
+		$http.post(
+			"/notification/getUserNotifications", 
+			{ "user" : res.data }
+		).then(function(res){
+			console.log(res)
+			$scope.notifications = res.data;
+		});
+	});
 
-	 //  $scope.showProdDetail = function(ev) {
-  //   	$mdDialog.show({
-		//   parent: angular.element(document.body),
-		//   controller: 'ProdDetailController',
-		//   templateUrl: 'partials/_prodDetail.html',
-		//   targetEvent: ev,
-		//   clickOutsideToClose:true
-		// })
-  //   };
-function submitLogin(){
-	document.forms["LoginForm"].submit();
-}
-
+	$scope.awknowledge = function(id){
+		$http.post(
+			"/notification/awknowledge",
+			{notification: id}
+		).then(function(res){
+			if(res.status ==200){
+				$http.get("/User/activeUser").then(function(res){
+					$http.post(
+						"/notification/getUserNotifications", 
+						{ "user" : res.data }
+					).then(function(res){
+						$scope.notifications = res.data;
+					});
+				});
+			}
+		});
+	}
+});
