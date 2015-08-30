@@ -74,17 +74,32 @@ techChallenge.factory('Company', ['$templateCache', '$log', '$resource',
 
             return $resource('/company', {}, {
                 get : {method: "GET", isArray: true},
-                create: {method: "POST"}
+                create: {method: "POST"},
+                getCompanies: function(){
+                    return {"test": 1};
+                }
             });
             
         }
     ]);
 
+techChallenge.factory('CompanyUser', ['$templateCache', '$log', '$resource',
+        function ($templateCache, $log, $resource) {
+
+            return $resource('/company/getFromUser', {}, {
+                getCompanies: {method : "GET", isArray: true}
+            });
+            
+        }
+    ]);
+
+
 techChallenge.factory('Product', ['$resource',
         function ($resource) {
 
             var Product =  $resource('/products', {}, {
-                get : {method: "GET", isArray: true}
+                get : {method: "GET", isArray: true},
+                create: {method: "POST"}
             });
             return Product;
         }

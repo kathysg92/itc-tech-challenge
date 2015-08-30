@@ -113,8 +113,6 @@ techChallenge
 	
 	$scope.saveCompany = function(company) {		
 		var comp = Company.create(company);		
-		console.log(comp)
-		console.log(comp.$promise.$$state.status)
 		var failed = 0;
 		comp.$promise.catch(function(){
 			showToast("Failed to add company, make sure you are logged in, company name and country must be filled up!", 5000, true);
@@ -140,6 +138,39 @@ techChallenge
 })
 .controller('ProductListController', function ($log, $scope, $routeParams, Product) {
 	$scope.products = Product.get();
+})
+.controller('ProductController', function ($location, $scope, $mdToast, Product, CompanyUser) {	
+
+	$scope.userCompanies = CompanyUser.getCompanies({"user" : "55d97033eed23e8a614cd67c"});;
+
+	function showToast(msg, delay, isLoading) {
+		var toastTemplate = '<md-toast class="md-capsule"><span>' + msg + '</span></md-toast>';
+		if (!delay) {
+			delay = 0;
+		}
+        if (isLoading) {
+            toastTemplate = '<md-toast class="md-capsule"><md-progress-circular md-diameter="24" md-mode="indeterminate"></md-progress-circular><span>' + msg + '</span></md-toast>';
+        }
+        return $mdToast.show({
+            template : toastTemplate,
+            hideDelay : delay,
+            position : 'bottom left'
+        });
+	}
+
+	$scope.saveProduct = function(product){
+		var product = Product.create(product);		
+		var failed = 0;
+		product.$promise.catch(function(){
+			showToast("Failed to add product, make sure you are logged in!", 5000, true);
+			failed = 1;
+		}).then(function(){
+			if(failed == 0){
+				showToast("Product added!", 5000, true);
+				$location.path( "/products" );		
+			}
+		});
+	}
 })
 .controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	$('.mdh-toggle-search').click(function() {

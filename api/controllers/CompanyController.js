@@ -14,6 +14,14 @@ module.exports = {
 			res.status(201);
 			res.json(company);
 		});
+	},
+	'getFromUser' : function(req, res, next){
+		var params = req.params.all();
+		Company.find({ user : params.user}, function(err, companies){
+			if(err) return next(err);
+			res.status(201);
+			return res.json(companies);
+		});
 	}
 };
 
