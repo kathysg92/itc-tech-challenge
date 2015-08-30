@@ -1,9 +1,10 @@
 <div class=''>
-	<h1>Notifications</h1>
-
+<h1>Notifications</h1>
+<hr/>
+<h2>Received Notifications</h2>
 <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded" ng-if='loggedIn'>
       <main class="mdl-layout__content">
-        <div class="mdl-grid">
+        <div class="section--center mdl-grid">
             <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--2dp" ng-repeat="notification in notifications">
               	<div class="mdl-card__title" style="bottom right no-repeat #40C4FF; background-size: 100% 100%;">
           			<h2 class="mdl-card__title-text">
@@ -17,6 +18,7 @@
         		</div>
     			<div class="mdl-card__actions mdl-card--border">
 			    	<p>{{notification.message}}</p>  
+			    	<a href="mailto:{{notification.from.email}}"><i class="material-icons">mail</i></a>
 			  	</div>  		
                 <div layout="row" ng-if='notification.awknowledge==undefined'>
                       <div flex></div>

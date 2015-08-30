@@ -352,17 +352,18 @@ techChallenge
 	$scope.sendNotification = function(notification){
 		Product.getOne({"id" : id}).$promise.then(function(product){	
 			if(!product.company.user){
-				showToast("This item does not have an user assigned!", 10000);
+				showToast("This item does not have an user assigned!", 15000);
 				return;
 			}else{
 				User.getOne({"id": product.company.user }).$promise.then(function(user){
 					$http.post("/User/activeUser").then(function(res){
-						console.log(Notification.create({
+						Notification.create({
 							to: user.id,
 							from: res.data,
 							message: notification, 
 							product: product
-						}));
+						});
+						showToast("Notification sent, expect a response from the vendor!", 15000);
 					});
 				});
 			}
