@@ -202,7 +202,7 @@ techChallenge
 	    }    
   	});
 	
-	$scope.products = Product.get(5);
+	$scope.products = Product.get();
 })
 .controller('BlogController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	function init() {
