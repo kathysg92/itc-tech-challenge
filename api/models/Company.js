@@ -14,7 +14,7 @@ module.exports = {
   	},
     "name" : { 
   		type : "string",
-  		required : true
+  		required : true,
   		type : "string"
   	},
     "website" : { 
