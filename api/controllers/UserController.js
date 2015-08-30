@@ -22,8 +22,10 @@ module.exports = {
     	});
     },
     activeUser : function(req, res){
-        console.log(req.session.passport)
-        res.send(req.session.passport.user)
+        if( req.session.passport){
+            res.send(req.session.passport.user);
+        }
+        res.status(400);
     }
 };
 

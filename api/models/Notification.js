@@ -9,11 +9,11 @@ module.exports = {
 
   attributes: {
   	"to" : { 
-  		type : "string",
+  		model : "user",
   		required: true
   	},
   	"from" : { 
-  		type : "string",
+  		model : "user",
   		required: true
   	},
   	"message" : { 
@@ -21,7 +21,7 @@ module.exports = {
   		required: true
   	},
   	"product" : { 
-  		type : "string",
+  		model : "products",
   		required: true
   	},
   	"acknowledged" : { 
