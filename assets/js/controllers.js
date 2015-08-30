@@ -140,8 +140,9 @@ techChallenge
 })
 .controller('ProductListController', function ($log, $scope, $routeParams, Product) {
 	$scope.products = Product.get();
-	$scope.product = Product.getOne({"id" : $routeParams.id});
-
+	if($routeParams.id){
+		$scope.product = Product.getOne({"id" : $routeParams.id});	
+	}
 })
 .controller('ProductController', function ($location, $scope, $mdToast, Product, CompanyUser) {	
 
@@ -257,23 +258,20 @@ techChallenge
 })
 .controller('EmailController', function ($scope, $mdDialog) {
 	$scope.status = '  ';
-	$scope.showEmail = function(ev) {
+
+	$scope.showEmail = function() {
 		$mdDialog.show({
 		  parent: angular.element(document.body),
 		  controller: 'EmailController',
 		  templateUrl: 'partials/_email.html',
-		  targetEvent: ev,
 		  clickOutsideToClose:true
-		})
-		.then(function(answer) {
-	      // $scope.status = 'You said the information was "' + answer + '".';
-	      //if answer == send : send email 
-	      console.log(answer)
-	    }, function() {
-	    	console.log(answer)
-	      // $scope.status = 'You cancelled the dialog.';
-	    });
+		});	
 	};
+
+	$scope.cancel = function() {
+		$mdDialog.cancel();
+	};
+
 })
 
 	 //  $scope.showProdDetail = function(ev) {
