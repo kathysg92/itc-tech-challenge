@@ -450,3 +450,7 @@ li {
   right: -7px;
   top: -8px;
 }
+
+a .blanco{
+  color: white !important;
+}
