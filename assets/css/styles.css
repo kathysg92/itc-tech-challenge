@@ -445,3 +445,7 @@ body .demo-blog {
   right: -7px;
   top: -8px;
 }
+
+a .blanco{
+  color: white !important;
+}
