@@ -1,0 +1,34 @@
+<md-dialog > <!--style="max-width:800px;max-height:810px; "-->
+<md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>New Story</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="answer('not applicable')">
+        <md-icon md-svg-src="images/close.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content style="max-width:800px;max-height:810px;"> 
+    <form method='POST' id='LoginForm' class='login-form' action='/login'>
+      <div class="group">
+        <input ng-model="story.title" name="email"><span class="highlight"></span><span class="bar"></span>
+        <label>Title</label>
+      </div>
+      <div class="group">
+      <md-input-container flex>
+        <textarea ng-model="story.description" aria-label="new story" md-maxlength="5000" column="1" rows="1"></textarea>
+        <label>Story</label>
+      </md-input-container>
+      </div>
+        <div class="md-actions" layout="row">
+          <span flex></span>
+          <md-button ng-click="cancel()"> 
+           Cancel
+          </md-button>
+          <md-button class="md-primary md-raised" ng-click="addStory(story)" style="margin-right:20px;">
+            Add
+          </md-button>
+        </div>
+   </form>
+  </md-content>
+</md-dialog>

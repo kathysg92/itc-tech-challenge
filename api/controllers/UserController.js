@@ -15,7 +15,7 @@ module.exports = {
     	var params = req.params.all();
 
     	User.create(params, function(err, user){
-    		if(err) return next(err);
+    		if(err) return res.send(err);
 
     		res.status(201);
     		res.redirect('/');

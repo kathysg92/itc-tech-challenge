@@ -33,6 +33,11 @@ margin-left: 30px;
                 <h3>{{product.name}}</h3>
               </div>
               <div class="mdl-color-text--grey-700 mdl-card__supporting-textProd">
+                <div layout="row" ng-controller="EmailController">
+                      <div flex></div>
+                      <md-button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="showEmail(product.name, product.id)"><i class="material-icons">question_answer</i></md-button>
+                </div>
+
                   <!-- <div class="group"> -->
                     <ul>
                       <!-- <li>Product Name: {{product.name}}</li> -->
@@ -48,12 +53,6 @@ margin-left: 30px;
 
                 <div class="mdl-grid" >
                     <div class="demo-card-square mdl-cell mdl-cell--4-col mdl-card mdl-shadow--2dp">
-                        <div class="mdl-card__title mdl-card--expand"></div>
-                        <div class="mdl-card__actions">
-                          <span class="demo-card-image__filename">/images/jewerly.png</span>
-                        </div>
-                      </div>
-                      <div class="demo-card-image mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col">
                         <div class="mdl-card__title mdl-card--expand"></div>
                         <div class="mdl-card__actions">
                           <span class="demo-card-image__filename">/images/jewerly.png</span>

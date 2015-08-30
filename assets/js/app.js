@@ -26,6 +26,10 @@ techChallenge
                 templateUrl : 'partials/company-list.html',
                 controller : 'CompanyListController'
             })
+            .when('/infographic', {
+                templateUrl : 'partials/infographics.html',
+                controller : 'InfographicController'
+            })
             .when('/products', {
                 templateUrl : 'partials/product-list.html',
                 controller : 'ProductListController'
