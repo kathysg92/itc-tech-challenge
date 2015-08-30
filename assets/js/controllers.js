@@ -139,9 +139,13 @@ techChallenge
 })
 .controller('CompanyListController', function ($log, $scope, $routeParams, Company) {
 	$scope.companies = Company.get();
+	// console.log($routeParams.id);
+	$scope.company = Company.getOne({"id" : $routeParams.id});
 })
 .controller('ProductListController', function ($log, $scope, $routeParams, Product) {
 	$scope.products = Product.get();
+	$scope.product = Product.getOne({"id" : $routeParams.id});
+
 })
 .controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	$('.mdh-toggle-search').click(function() {
@@ -174,6 +178,21 @@ techChallenge
 	}
 })
 .controller('EntryController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
+.controller('EntryController2', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
+.controller('EntryController3', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
+.controller('EntryController4', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	function init() {
 		
 	}
@@ -227,17 +246,16 @@ techChallenge
 	    });
 	};
 })
-.controller('ProdDetailController', function ($scope, $mdDialog) {
-	  $scope.showProdDetail = function(ev) {
-    	$mdDialog.show({
-		  parent: angular.element(document.body),
-		  controller: 'ProdDetailController',
-		  templateUrl: 'partials/_prodDetail.html',
-		  targetEvent: ev,
-		  clickOutsideToClose:true
-		})
-    };
-})
+
+	 //  $scope.showProdDetail = function(ev) {
+  //   	$mdDialog.show({
+		//   parent: angular.element(document.body),
+		//   controller: 'ProdDetailController',
+		//   templateUrl: 'partials/_prodDetail.html',
+		//   targetEvent: ev,
+		//   clickOutsideToClose:true
+		// })
+  //   };
 function submitLogin(){
 	document.forms["LoginForm"].submit();
 }
