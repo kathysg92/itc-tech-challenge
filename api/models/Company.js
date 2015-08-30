@@ -12,25 +12,25 @@ module.exports = {
   		type : "string",
   		required : true
   	},
-    "company name" : { 
+    "name" : { 
   		type : "string",
   		required : true
   	},
     "website" : { 
   		type : "string"
   	},
+    "owner" : { 
+  		type : "string",
+  	},
+    "address" : { 
+      type : "string"
+    },
     "profile" : { 
   		type : "string",
   	},
-    "url" : { 
-  		type : "string"
-  	},
-    "qrURL" : { 
-  		type : "string"
-  	},
-    "role" : { 
-  		type : "string"
-  	},
+    "phone" : { 
+      type : "string"
+    },
     "name" : { 
   		type : "string",
   		required : true
@@ -39,27 +39,28 @@ module.exports = {
   		type : "string",
   		required : true
   	},
-    "YearofEstablishment" : { 
+
+    "YearOfEstablishment" : { 
   		type : "datetime"
   	},
-    "#ofPermanentEmployees" : { 
+    "numOfPermanentEmployees" : { 
   		type : "integer"
   	},
-    "#ofFemaleEmployees" : { 
+    "numOfFemaleEmployees" : { 
   		type : "integer"
   	},
-    "%ofthebusinessownedbyWomen" : { 
+    "businessOwnedbyWomen" : { 
   		type : "integer"
   	},
-    "ManagedandControlledbyWomen" : {
+    "managedandControlledbyWomen" : {
     	type: 'string',
         enum: ['yes', 'no', 'm', 'mm'],
         defaultsTo: 'yes'
     },
-    "Certifications:" : { 
+    "certifications:" : { 
   		type : "string"
   	},
-    "Memberof(Intitution/Association) :" : { 
+    "memberof(Intitution/Association) :" : { 
   		type : "string"
   	},
     "description" : { 

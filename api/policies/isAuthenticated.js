@@ -6,6 +6,8 @@ module.exports = function(req, res, next) {
         return next();
     }
     else{
-        return res.redirect('/login');
+    	res.status(400)
+    	return res.json({"error" : "You need to login!"})
+        // return res.redirect('/login');
     }
 };

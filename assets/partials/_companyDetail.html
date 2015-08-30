@@ -17,11 +17,6 @@
           font-size: 14px;
           font-weight: 500;
         }
-/*        float: left;
-margin-right: 30px;
-margin-left: 30px;
-}*/
-
     </style>
 
  </head>
@@ -29,43 +24,29 @@ margin-left: 30px;
    <div class="demo-blog demo-blog--blogpost mdl-layout mdl-js-layout has-drawer is-upgraded">
           <div class="demo-blog__posts mdl-grid">
             <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-              <div class="mdl-card__media mdl-color-text--grey-50" style="background: url('images/products/product_{{product.businessName}}.jpg') bottom right no-repeat #40C4FF; background-size: 100% 100%;">
-                <h3>{{product.name}}</h3>
+              <div class="mdl-card__media mdl-color-text--grey-50">
+                <h3>{{company.name}}</h3> <!--LOGO-->
               </div>
               <div class="mdl-color-text--grey-700 mdl-card__supporting-textProd">
-                  <!-- <div class="group"> -->
-                    <ul>
-                      <!-- <li>Product Name: {{product.name}}</li> -->
-                      <li>Description: {{product.description}}</li>
-                      <li>Category:{{product.category}} </li>
-                      <li>Business Name: {{product.businessName}}</li>
-                      <li>Country: {{product.country}}</li>
-                      <li>Email: {{product.email}}</li>
-                      <li>Phone: {{product.phone}}</li>
-                      <li>Website: {{product.website}} </li>
+                 <ul>
+                      <li><bold>Name : </bold> {{company.name}}</li>
+                      <li><bold>Description : </bold> {{company.description}}</li>
+                      <li><bold>Country : </bold> {{company.country}} </li>
+                      <li><bold>Year Established : </bold> {{company.YearofEstablishment}}</li>
+                      <li><bold>Number of permanet Employees :</bold> {{company.numOfPermanentEmployees}}</li>
+                      <li><bold>Number of female employees :</bold> {{company.numOfFemaleEmployees}}</li>
+                      <li><bold>Bussiness own by women: </bold> {{company.businessownedbyWomen}}</li>
+                      <li><bold>Managed and Controlled by women : </bold> {{company.managedandControlledbyWomen}}</li>
+                      <li><bold>Certifications : </bold> {{company.certifications}}</li>                      
+                      <li><bold>Website : </bold> {{company.website}} </li>
                     </ul>
                 </div>
-                <div class="mdl-cell mdl-cell--3-col" style="width:500 px" >
-                <div class="demo-card-image mdl-card mdl-shadow--2dp" style="float:left; width:100 px">
+                <div class="demo-card-image mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col">
                   <div class="mdl-card__title mdl-card--expand"></div>
                   <div class="mdl-card__actions">
                     <span class="demo-card-image__filename">/images/jewerly.png</span>
                   </div>
-                </div>
-                <div class="demo-card-image mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col" style="float:left; width:100 px" >
-                  <div class="mdl-card__title mdl-card--expand"></div>
-                  <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">/images/jewerly.png</span>
-                  </div>
-                </div>
-                <div class="demo-card-image mdl-card mdl-shadow--2dp mdl-cell mdl-cell--3-col" style="float:left; width:100 px">
-                  <div class="mdl-card__title mdl-card--expand"></div>
-                  <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">/images/jewerly.png</span>
-                  </div>
-                </div>
-                <div>
-            </div>
+                </div>    
           </div>
           </div>
         <div class="mdl-layout__obfuscator"></div>

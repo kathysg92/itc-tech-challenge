@@ -199,6 +199,13 @@ md-input-container .md-placeholder:not(.md-select-label), md-input-container lab
 	background-size:cover;
 	-webkit-background-origin:border;
 	height: 450px;
-	/*min-height: 600px;*/
 	width: 100%;
+}
+
+.header-img-top5{
+	background: url(/images/Top5.png) center left no-repeat;
+	background-size:cover;
+	-webkit-background-origin:border;
+	height: 295px;
+	width: 360px;
 }

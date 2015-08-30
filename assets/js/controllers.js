@@ -3,7 +3,7 @@
 /* Controllers */
 
 techChallenge
-.controller('CompanyController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+.controller('CompanyController', function ($location, $window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
     function init() {
 		$scope.validImage = false;
 		$scope.card = new Card();
@@ -92,10 +92,6 @@ techChallenge
 		}
 	};
 	
-	$scope.syncCardModel = function () {
-		Company.toCard($scope.company, $scope.card);
-	};
-	
 	$scope.validateImage = function () {
 		if ($scope.company.logoImgUrl) {
 			if (!$scope.company.logoImgUrl.indexOf('http') == 0) {
@@ -115,18 +111,18 @@ techChallenge
 		return true;
 	};
 	
-	$scope.saveCompany = function() {
-		if (this.validImage) {
-			$log.debug($scope.card);
-			showToast("Saving company info...", null, true);
-			if ($scope.card.id) {
-				updateCompanyCard();
-			} else {
-				createCompanyCard();
+	$scope.saveCompany = function(company) {		
+		var comp = Company.create(company);		
+		var failed = 0;
+		comp.$promise.catch(function(){
+			showToast("Failed to add company, make sure you are logged in, company name and country must be filled up!", 5000, true);
+			failed = 1;
+		}).then(function(){
+			if(failed == 0){
+				showToast("Company added!", 5000, true);
+				$location.path( "/" );		
 			}
-		} else {
-			showErrorMessage(null, 'The company logo url doesn\'t point to an image.');
-		}
+		});
 	}
 
 	$scope.companies = Company.get();
@@ -139,11 +135,48 @@ techChallenge
 })
 .controller('CompanyListController', function ($log, $scope, $routeParams, Company) {
 	$scope.companies = Company.get();
+	// console.log($routeParams.id);
+	$scope.company = Company.getOne({"id" : $routeParams.id});
 })
 .controller('ProductListController', function ($log, $scope, $routeParams, Product) {
 	$scope.products = Product.get();
+	$scope.product = Product.getOne({"id" : $routeParams.id});
+
 })
-.controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+.controller('ProductController', function ($location, $scope, $mdToast, Product, CompanyUser) {	
+
+	$scope.userCompanies = CompanyUser.getCompanies({"user" : "55d97033eed23e8a614cd67c"});;
+
+	function showToast(msg, delay, isLoading) {
+		var toastTemplate = '<md-toast class="md-capsule"><span>' + msg + '</span></md-toast>';
+		if (!delay) {
+			delay = 0;
+		}
+        if (isLoading) {
+            toastTemplate = '<md-toast class="md-capsule"><md-progress-circular md-diameter="24" md-mode="indeterminate"></md-progress-circular><span>' + msg + '</span></md-toast>';
+        }
+        return $mdToast.show({
+            template : toastTemplate,
+            hideDelay : delay,
+            position : 'bottom left'
+        });
+	}
+
+	$scope.saveProduct = function(product){
+		var product = Product.create(product);		
+		var failed = 0;
+		product.$promise.catch(function(){
+			showToast("Failed to add product, make sure you are logged in!", 5000, true);
+			failed = 1;
+		}).then(function(){
+			if(failed == 0){
+				showToast("Product added!", 5000, true);
+				$location.path( "/products" );		
+			}
+		});
+	}
+})
+.controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company, Product) {
 	$('.mdh-toggle-search').click(function() {
     // No search bar is currently shown
     if ($(this).find('i').text() == 'search') {
@@ -167,6 +200,8 @@ techChallenge
 
     
   });
+	$scope.products = Product.get(5);
+	$scope.product = Product.getOne({"id" : $routeParams.id});
 })
 .controller('BlogController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	function init() {
@@ -174,6 +209,21 @@ techChallenge
 	}
 })
 .controller('EntryController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
+.controller('EntryController2', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
+.controller('EntryController3', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
+	function init() {
+		
+	}
+})
+.controller('EntryController4', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	function init() {
 		
 	}
@@ -227,17 +277,16 @@ techChallenge
 	    });
 	};
 })
-.controller('ProdDetailController', function ($scope, $mdDialog) {
-	  $scope.showProdDetail = function(ev) {
-    	$mdDialog.show({
-		  parent: angular.element(document.body),
-		  controller: 'ProdDetailController',
-		  templateUrl: 'partials/_prodDetail.html',
-		  targetEvent: ev,
-		  clickOutsideToClose:true
-		})
-    };
-})
+
+	 //  $scope.showProdDetail = function(ev) {
+  //   	$mdDialog.show({
+		//   parent: angular.element(document.body),
+		//   controller: 'ProdDetailController',
+		//   templateUrl: 'partials/_prodDetail.html',
+		//   targetEvent: ev,
+		//   clickOutsideToClose:true
+		// })
+  //   };
 function submitLogin(){
 	document.forms["LoginForm"].submit();
 }

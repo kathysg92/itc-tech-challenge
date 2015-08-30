@@ -1,109 +1,87 @@
-<head>
- 	<title>Create new company</title>
-	<section class="header-large-img mdl-cell mdl-cell--12-col"></section>
-</head>
-<body>
 <div id="main-content" layout="column" class="content-container">
-		<div class="content-block">
+		<!-- <div class="content-block">
 			<div layout layout-sm="column" class="content-block-title">
 				<h4>Contact Information</h4>
 			</div>
 			<div layout layout-sm="column">
 				<md-input-container flex="35">
 					<label>Name *</label>
-					<input ng-model="company.contactName" ng-required="true" ng-change="syncCardModel()">
+					<input ng-model="company.contactName" ng-required="true" >
 				</md-input-container>
 				<md-input-container flex="35">
 					<label>Bussiness Name *</label>
-					<input ng-model="company.businessName" ng-required="true" ng-change="syncCardModel()">
+					<input ng-model="company.businessName" ng-required="true" >
 				</md-input-container>
 				
 			</div>	
 			<div layout layout-sm="column">
 			<md-input-container flex="35">
 					<label>Email *</label>
-					<input ng-model="company.email" ng-required="true" ng-change="syncCardModel()">
+					<input ng-model="company.email" ng-required="true" >
 				</md-input-container>
 				<md-input-container flex="35">
 					<label>Password *</label>
-					<input ng-model="company.password" type="password" ng-required="true" ng-change="syncCardModel()">
+					<input ng-model="company.password" type="password" ng-required="true" >
 				</md-input-container>
 			</div>
-		</div>
+		</div> -->
 		<div class="content-block">
 			<div layout layout-sm="column" class="content-block-title">
-				<h4>Business Information</h4>
+				<h4>Company Creation</h4>
 			</div>
+
+			<md-input-container class="md-icon-float" flex="50" flex-sm>
+				<md-icon md-font-icon="icon-ic_perm_identity_48px"></md-icon>
+				<label>Company Name</label>
+				<input ng-model="company.name" required>
+				<span class="error" ng-show="myForm.input.$error.required">Required!</span><br>
+			</md-input-container>
 			<md-input-container flex>
-				<md-input-container flex="35">
+		<!-- 		<md-input-container flex="35">
 					<md-checkbox ng-model="company.isProduct" aria-label="Product">Product </md-checkbox>
 					<md-checkbox ng-model="company.isService" aria-label="Service">Service </md-checkbox>
 				</md-input-container>
 
-				<!-- <md-input-container flex="35">
+				<md-input-container flex="35">
 					<md-checkbox ng-model="company.isManagedControledByWomen" aria-label="Managed & Controled by Women?">Managed & Controled by Women? </md-checkbox>
-				</md-input-container> -->	
-
-			    <label>Business description</label>
-				<textarea ng-model="company.businessDescription" aria-label="Business Description" ng-change="syncCardModel()" md-maxlength="5000" column="1" rows="1"></textarea>
+				</md-input-container>	 -->
+			    <label>Business description (optional)</label>
+				<textarea ng-model="company.businessDescription" aria-label="Business Description"  md-maxlength="5000" column="1" rows="1"></textarea>
 
 			</md-input-container>
 
 			<div layout layout-sm="column">
+
 				<md-input-container class="md-icon-float" flex="50" flex-sm>
-					<label>Business Website</label>
+					<label>Business Website (optional)</label>
 					<md-icon md-font-icon="icon-ic_insert_link_48px"></md-icon>
-					<input ng-model="company.website" ng-change="syncCardModel()">
-				</md-input-container>
-				<md-input-container class="md-icon-float" flex="20" flex-sm>
-					<label>Phone</label>
-					<md-icon md-font-icon="icon-ic_phone_48px"></md-icon>
-					<input ng-model="company.phone" ng-change="syncCardModel()">
-				</md-input-container>
-			</div>
-			<div layout layout-sm="column">
-				<md-input-container flex="25">
-					<label>Year of Establishment</label>
-					<input ui-date ui-date-format="d MM, yy" ng-model="company.yearOfEstablishment" ng-change="syncCardModel()">
-				</md-input-container>
-				<md-input-container flex="25">
-					<label>% of the Business Owned by Women</label>
-					<input class="numeric-input" type="number" ng-model="company.percBusinessOwnedByWomen" ng-change="syncCardModel()" min="0" max="100" size="50">
+					<input ng-model="company.website" type="url">
 				</md-input-container>
 				<md-input-container flex="20" flex-sm>
 					<label>Country</label>
-					<input ng-model="company.country" ng-change="syncCardModel()">
+					<input ng-model="company.country" required>
 				</md-input-container>
-
-			</div>	
-			<div layout layout-sm="column">
-				<md-input-container class="md-icon-float" flex="68" flex-sm>
-					<label>Address</label>
-					<md-icon md-font-icon="icon-ic_place_48px"></md-icon>
-					<input ng-model="company.address" ng-change="syncCardModel()">
-				</md-input-container>
-				
-			</div>
+			</div>			
 		</div>
-		<div class="content-block">
+		<!-- <div class="content-block">
 			<div layout layout-sm="column" class="content-block-title">
 				<h4>Product/Service Information</h4>
 			</div>
 			<div layout layout-sm="column">
 				<md-input-container flex>
 					<label>Description</label>
-					<textarea ng-model="company.description" aria-label="Description" ng-change="syncCardModel()" md-maxlength="5000" column="1" rows="1"></textarea>
+					<textarea ng-model="company.description" aria-label="Description"  md-maxlength="5000" column="1" rows="1"></textarea>
 				</md-input-container>
 			</div>
 			<div layout layout-sm="column">
 				<md-input-container flex="35">
 					<label>Name *</label>
-					<input ng-model="company.name" ng-required="true" ng-change="syncCardModel()">
+					<input ng-model="company.name" ng-required="true" >
 				</md-input-container>
 				<md-input-container flex="35">
 					<label>Category *</label>
-					<input ng-model="company.category" ng-required="true" ng-change="syncCardModel()">
-					<!-- <button id="demo-menu-lower-left"
+					<input ng-model="company.category" ng-required="true" >
+					<button id="demo-menu-lower-left"
 					        class="mdl-button mdl-js-button mdl-button--icon">
 					 Category
 					</button>
@@ -115,9 +93,9 @@
 					  <li disabled class="mdl-menu__item">Disabled Action</li>
 					  <li class="mdl-menu__item">Yet Another Action</li>
 
-					</ul> -->
+					</ul>
 
-					<!-- menuItems = [
+					menuItems = [
 					   { payload: '1', text: 'Never' },
 					   { payload: '2', text: 'Every Night' },
 					   { payload: '3', text: 'Weeknights' },
@@ -125,20 +103,20 @@
 					   { payload: '5', text: 'Weekly' },
 					];
 
-					<DropDownMenu menuItems={menuItems} /> -->
+					<DropDownMenu menuItems={menuItems} />
 				</md-input-container>
 				
-			</div>	
+				</div>
 			<div layout="row">
                 <div flex></div>
-                <!-- <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored right">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored right">
 				  <i class="material-icons">add</i>
-				</button> -->
+				</button>
 				<md-button type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"><i class="material-icons">add</i></md-button>
                
             </div>
-		</div>
-		<div class="content-block">
+		</div> -->
+		<!-- <div class="content-block">
 			<div layout layout-sm="column" class="content-block-title">
 				<h4>Tearms and Conditions</h4>
 			</div>
@@ -167,19 +145,17 @@
 					<md-checkbox ng-model="company.isService" aria-label="No">No </md-checkbox>
 				</md-input-container>
 			</md-input-container>
-		</div>
+		</div> -->
 
 		<div class="content-block-bottom">
 			<div layout="row">
                 <div flex></div>
-				<md-button type="button" aria-label="Cancel" ng-click="cancel()">Cancel</md-button>
-                <md-button class="md-accent" type="button" aria-label="Save" ng-click="saveCompany()" ng-disabled="!isCompanyValid()">Save</md-button>
+                <md-button class="md-primary md-raised" type="button" aria-label="Save" ng-click="saveCompany(company)" ng-disabled="!isCompanyValid()">Save Company</md-button>
             </div>
 		</div>
 	</md-content>
 </div>
 <div class="mdl-layout__obfuscator"></div>
-<body>
 <footer class="mdl-mini-footer">
   <div class="mdl-mini-footer--left-section">
     <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
