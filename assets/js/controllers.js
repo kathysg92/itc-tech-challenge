@@ -134,9 +134,11 @@ techChallenge
 
 })
 .controller('CompanyListController', function ($log, $scope, $routeParams, Company) {
-	$scope.companies = Company.get();
-	// console.log($routeParams.id);
-	$scope.company = Company.getOne({"id" : $routeParams.id});
+	$scope.companies = Company.get();	
+	if($routeParams.id){
+		$scope.company = Company.getOne({"id" : $routeParams.id});	
+	}
+
 })
 .controller('ProductListController', function ($log, $scope, $routeParams, Product) {
 	$scope.products = Product.get();
@@ -179,28 +181,28 @@ techChallenge
 })
 .controller('PrincipalController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	$('.mdh-toggle-search').click(function() {
-    // No search bar is currently shown
-    if ($(this).find('i').text() == 'search') {
-      $(this).find('i').text('cancel');
-      $(this).removeClass('mdl-cell--hide-tablet mdl-cell--hide-desktop'); // Ensures the close button doesn't disappear if the screen is resized.
+	    // No search bar is currently shown
+	    if ($(this).find('i').text() == 'search') {
+	      $(this).find('i').text('cancel');
+	      $(this).removeClass('mdl-cell--hide-tablet mdl-cell--hide-desktop'); // Ensures the close button doesn't disappear if the screen is resized.
 
-      $('.mdl-layout__drawer-button, .mdl-layout-title, .mdl-badge, .mdl-layout-spacer').hide();
-      $('.mdl-layout__header-row').css('padding-left', '16px'); // Remove margin that used to hold the menu button
-      $('.mdh-expandable-search').removeClass('mdl-cell--hide-phone').css('margin', '0 16px 0 0');
-      
-    }
-    // Search bar is currently showing
-    else {
-      $(this).find('i').text('search');
-      $(this).addClass('mdl-cell--hide-tablet mdl-cell--hide-desktop');
-      
-      $('.mdl-layout__drawer-button, .mdl-layout-title, .mdl-badge, .mdl-layout-spacer').show();
-      $('.mdl-layout__header-row').css('padding-left', '');
-      $('.mdh-expandable-search').addClass('mdl-cell--hide-phone').css('margin', '0 50px');
-    }
-
-    
-  });
+	      $('.mdl-layout__drawer-button, .mdl-layout-title, .mdl-badge, .mdl-layout-spacer').hide();
+	      $('.mdl-layout__header-row').css('padding-left', '16px'); // Remove margin that used to hold the menu button
+	      $('.mdh-expandable-search').removeClass('mdl-cell--hide-phone').css('margin', '0 16px 0 0');
+	      
+	    }
+	    // Search bar is currently showing
+	    else {
+	      $(this).find('i').text('search');
+	      $(this).addClass('mdl-cell--hide-tablet mdl-cell--hide-desktop');
+	      
+	      $('.mdl-layout__drawer-button, .mdl-layout-title, .mdl-badge, .mdl-layout-spacer').show();
+	      $('.mdl-layout__header-row').css('padding-left', '');
+	      $('.mdh-expandable-search').addClass('mdl-cell--hide-phone').css('margin', '0 50px');
+	    }    
+  	});
+	
+	$scope.products = Product.get(5);
 })
 .controller('BlogController', function ($window, $log, $scope, $routeParams, $http, $templateCache, $mdToast, Card, Company) {
 	function init() {
@@ -283,8 +285,63 @@ techChallenge
 
 	$scope.cancel = function() {
 		$mdDialog.cancel();
+	};	
+
+})
+.controller('DialogNotificationController', function ($http, $scope, $mdDialog, $mdToast, selectedProduct, id, Notification, Product, User) {
+	$scope.selectedProduct = selectedProduct;
+
+	function showToast(msg, delay, isLoading) {
+		var toastTemplate = '<md-toast class="md-capsule"><span>' + msg + '</span></md-toast>';
+		if (!delay) {
+			delay = 0;
+		}
+        if (isLoading) {
+            toastTemplate = '<md-toast class="md-capsule"><md-progress-circular md-diameter="24" md-mode="indeterminate"></md-progress-circular><span>' + msg + '</span></md-toast>';
+        }
+        return $mdToast.show({
+            template : toastTemplate,
+            hideDelay : delay,
+            position : 'bottom left'
+        });
+	}
+
+	$scope.cancel = function() {
+		$mdDialog.cancel();
 	};
 
+	$scope.messageIsSet = function () {
+		if ($scope.notificationSend.$pristine) {
+			return false;
+		}
+		if ($scope.notificationSend.$invalid) {
+			return false;
+		}
+		return true;
+	};
+
+	$scope.sendNotification = function(notification){
+		Product.getOne({"id" : id}).$promise.then(function(product){	
+
+			if(!product.company.user){
+				showToast("This item does not have an user assigned!", 10000);
+				return;
+			}
+
+			User.getOne({"id": product.company.user }).$promise.then(function(user){
+				$http.post("/User/activeUser").then(function(res){
+					console.log(Notification.create({
+						to: user.id,
+						from: res.data,
+						message: notification, 
+						product: product
+					}));
+				});
+			});
+			
+		});
+		$scope.cancel();
+	};
 })
 
 	 //  $scope.showProdDetail = function(ev) {
