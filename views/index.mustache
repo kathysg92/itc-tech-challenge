@@ -23,7 +23,7 @@
 	<script src="/bower_components/angular-material/angular-material.js"></script>
 	<script src="/bower_components/angular-ui-date/src/date.js"></script>
 	
-	<script src="/node_modules/mustache/mustache.js"></script>
+	<!--<script src="/node_modules/mustache/mustache.js"></script>-->
 	<script src="js/app.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/services.js"></script>
@@ -112,6 +112,7 @@
 				</div>
 				{{#req.session.auth}}
 					<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/company/new">New Company</a>
+					<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/product/new">New Product/Service</a>
 				{{/req.session.auth}}
 				<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/companies">List Companies</a>
 				<a class="mdl-navigation__link" onclick="closeDrawer()" href="/#/products">List Products&Services</a>
