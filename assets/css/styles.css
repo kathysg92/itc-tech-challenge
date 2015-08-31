@@ -40,6 +40,12 @@ li {
   align-items: stretch;
   min-height: 360px;
 }
+.demo-blog .mdl-cardCompany {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100px;
+}
 
 .demo-blog .mdl-card__title {
   padding: 16px;

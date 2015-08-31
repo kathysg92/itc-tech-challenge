@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
-            <div ng-controller="StoryController">
+            <!-- <div ng-controller="StoryController">
                 <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent" ng-click="formAddStory($event)">
                   <i class="material-icons mdl-color-text--white" role="presentation">add</i>
                   <span class="visuallyhidden">add</span>
@@ -54,6 +54,14 @@
             <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
               <img src="images/logo.png">
               +1,337
+            </div> -->
+            <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
+              <div ng-controller="StoryController">
+                <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent medium" ng-click="formAddStory($event)">
+                  <i class="material-icons mdl-color-text--white" role="presentation">add</i>
+                  <span class="visuallyhidden">add</span>
+                </button>
+            </div>
             </div>
             <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
               <div>
