@@ -297,12 +297,18 @@ techChallenge
 .controller('EmailController', function ($scope, $mdDialog) {
 	$scope.status = '  ';
 
-	$scope.showEmail = function() {
+	$scope.showEmail = function(selectedProduct, id) {
 		$mdDialog.show({
 		  parent: angular.element(document.body),
-		  controller: 'EmailController',
+		  controller: 'DialogNotificationController',
 		  templateUrl: 'partials/_email.html',
-		  clickOutsideToClose:true
+		  clickOutsideToClose:true,
+		  hasBackdrop: true,
+		  locals: { 
+		  	"selectedProduct": selectedProduct,
+		  	"id" : id
+		  },
+		  bindToController: true
 		});	
 	};
 
@@ -345,28 +351,61 @@ techChallenge
 
 	$scope.sendNotification = function(notification){
 		Product.getOne({"id" : id}).$promise.then(function(product){	
-
 			if(!product.company.user){
-				showToast("This item does not have an user assigned!", 10000);
+				showToast("This item does not have an user assigned!", 15000);
 				return;
+			}else{
+				User.getOne({"id": product.company.user }).$promise.then(function(user){
+					$http.post("/User/activeUser").then(function(res){
+						Notification.create({
+							to: user.id,
+							from: res.data,
+							message: notification, 
+							product: product
+						});
+						showToast("Notification sent, expect a response from the vendor!", 15000);
+					});
+				});
 			}
 
-			User.getOne({"id": product.company.user }).$promise.then(function(user){
-				$http.post("/User/activeUser").then(function(res){
-					console.log(Notification.create({
-						to: user.id,
-						from: res.data,
-						message: notification, 
-						product: product
-					}));
-				});
-			});
+			
 			
 		});
 		$scope.cancel();
 	};
 })
-function submitLogin(){
-	document.forms["LoginForm"].submit();
-}
+.controller('NotificationController', function ($http, $scope) {
+	$http.get("/User/activeUser").then(function(res){
+		console.log(res.data)
+		if(res.data){
+			$scope.loggedIn = true;
+		}else{
+			$scope.loggedIn = false;
+		}
+		$http.post(
+			"/notification/getUserNotifications", 
+			{ "user" : res.data }
+		).then(function(res){
+			console.log(res)
+			$scope.notifications = res.data;
+		});
+	});
 
+	$scope.awknowledge = function(id){
+		$http.post(
+			"/notification/awknowledge",
+			{notification: id}
+		).then(function(res){
+			if(res.status ==200){
+				$http.get("/User/activeUser").then(function(res){
+					$http.post(
+						"/notification/getUserNotifications", 
+						{ "user" : res.data }
+					).then(function(res){
+						$scope.notifications = res.data;
+					});
+				});
+			}
+		});
+	}
+});

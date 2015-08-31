@@ -1,25 +1,51 @@
 <div class=''>
-	<h1>Notifications</h1>
-
-<div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+<h1>Notifications</h1>
+<hr/>
+<h2>Received Notifications</h2>
+<div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded" ng-if='loggedIn'>
       <main class="mdl-layout__content">
-        <div class="mdl-grid">
-            <div class="demo-card-square mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp" ng-repeat="notification in notifications">
-              	<div class="mdl-card__title mdl-card--expand" style="bottom right no-repeat #40C4FF; background-size: 100% 100%;">
-          			<h2 class="mdl-card__title-text">{{notification.product.name}}</h2>
+        <div class="section--center mdl-grid">
+            <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--2dp" ng-repeat="notification in notifications">
+              	<div class="mdl-card__title" style="bottom right no-repeat #40C4FF; background-size: 100% 100%;">
+          			<h2 class="mdl-card__title-text">
+          				Product: {{notification.product.name}}
+          				<i class="material-icons" ng-if='notification.awknowledge'>check</i>
+          			</h2>
+          				
           		</div>
         		<div class="mdl-card__supporting-text">
-        			<i>From: {{notification.from}}</i> 
-        			<br/><br/>
-	        		{{notification.message}}
+	        		The user {{notification.from.email}} is interested in your product {{notification.product.name}}, he also left the following message for you: 
         		</div>
-                <div layout="row" ng-controller="EmailController">
+    			<div class="mdl-card__actions mdl-card--border">
+			    	<p>{{notification.message}}</p>  
+			    	<a href="mailto:{{notification.from.email}}"><i class="material-icons">mail</i></a>
+			  	</div>  		
+                <div layout="row" ng-if='notification.awknowledge==undefined'>
                       <div flex></div>
                       <md-button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="awknowledge(notification.id)"><i class="material-icons">check</i></md-button>
                 </div>
           	</div>
       	</div>
   	</main>
+</div>
+
+<div ng-if='!loggedIn'>
+	<div class="mdl-card mdl-shadow--2dp" style="display:block; left: 0; top: 30%; margin: 0 auto; vertical-align: middle;">
+	  <div class="mdl-card__title">
+	    <h2 class="mdl-card__title-text">  <i class="large material-icons">info</i> &nbsp; Please log in!</h2>
+	  </div>
+	  <div class="mdl-card__supporting-text">
+	  Or click here...
+	    <div ng-controller="LoginController">
+			<nav class="mdl-navigation">
+					<md-button class="md-primary md-raised" ng-click="showLogin($event)" flex flex-md="100" onclick="closeDrawer()">
+					    Login
+					</md-button>
+			</nav>
+		</div>
+	  </div>
+	</div>
+
 </div>
 
 </div>
